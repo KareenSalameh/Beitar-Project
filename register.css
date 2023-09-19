@@ -1,0 +1,24 @@
+body {
+    background-color:rgb(249, 249, 249);
+    text-align: right;
+}
+
+.bsymbol {
+    transform: scale(7.8);
+    margin: 0;
+}
+input {
+    background-color: rgb(245, 229, 3);
+    font-size: 20px;
+    border-radius: 7%;
+}
+/*.move{
+    margin-right: 9%;
+}*/
+#title {
+    font-size: 50px;
+}
+
+#quiz {
+    color: black !important;
+}
