@@ -1,0 +1,23 @@
+body {
+    background-color:snow;
+}
+
+.bsymbol {
+    transform: scale(7.8);
+    margin: 0;
+}
+input {
+    background-color: rgb(245, 229, 3);
+    font-size: 24px;
+    border-radius: 7%;
+}
+.move{
+    margin-right: 9%;
+}
+#title {
+    font-size: 50px;
+}
+
+#login {
+    color: black !important;
+}
