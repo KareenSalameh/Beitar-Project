@@ -1,0 +1,14 @@
+.bsymbol {
+    transform: scale(7.8);
+    margin: 0;
+}
+#title {
+    font-size: 50px;
+}
+#logout {
+    text-align: left;
+    position: absolute;
+    bottom: 15%;
+    left: 0;
+    right: 0;
+}
