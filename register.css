@@ -12,9 +12,6 @@ input {
     font-size: 20px;
     border-radius: 7%;
 }
-/*.move{
-    margin-right: 9%;
-}*/
 #title {
     font-size: 50px;
 }
@@ -70,4 +67,8 @@ input {
 .close{
     position: absolute;
     height: 15px;
+}
+.quiz {
+    top:30%;
+    position: absolute;
 }
