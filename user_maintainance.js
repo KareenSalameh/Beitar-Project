@@ -1,3 +1,4 @@
+//static data - should be remove after having a database access
 const jsonData = [
     { "name": "avi", "last_name": "yahoo", "mail": "lucyhaim@gmail.com", "d_o_b": "28/09/1996", "picture":"man1.jpg" },
     { "name": "yossi", "last_name": "benaiun", "mail": "balazor@gmail.com", "d_o_b": "23/04/1995","picture":"man2.jpg" },
@@ -5,9 +6,12 @@ const jsonData = [
 ];
 
 function generateGridRows(data) {
+    //table item access
     const gridContainer = $("#grid");
 
+    //for each object from the db
     data.forEach(item => {
+        //create a bootstrap row with an image, name, last name, mail, date of birth and a delete button
         const rowHtml = `
         <div class="row">
             <div class="col-2 text-center fs-5 my-2">
@@ -24,8 +28,10 @@ function generateGridRows(data) {
             </div>
         </div>
         `;
+        //add the row to the table item
         gridContainer.append(rowHtml);
     });
+    //add a border outside the table
     gridContainer.addClass("bord");
 }
 

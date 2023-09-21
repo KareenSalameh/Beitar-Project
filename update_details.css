@@ -2,26 +2,31 @@ body {
     background-color:rgb(249, 249, 249);
     text-align: right;
 }
+
+/*chaning the color of the fields which are unaccessible*/
 input[readonly] {
     color: rgb(142, 141, 141); 
 }
+
+/*customize the image size*/
 .bsymbol {
     transform: scale(7.8);
     margin: 0;
 }
+
+/*customize the fields*/
 input {
     background-color: rgb(245, 229, 3);
     font-size: 20px;
     border-radius: 7%;
 }
+
+/*increase the title size*/
 #title {
     font-size: 50px;
 }
 
-#quiz {
-    color: black !important;
-}
-
+/*customize the update button*/
 .button{
     position: absolute;
     left: 50%;
@@ -36,6 +41,8 @@ input {
     border-radius: 5px;
     box-shadow: 6px 6px 29px -4px rgb(206, 196, 54);
 }
+
+/*chaning the quiz button when hover*/
 .button:hover{
     background: #0f1316;
     color: #fff;

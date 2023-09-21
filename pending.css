@@ -1,10 +1,13 @@
+/*customize the image size*/
 .bsymbol {
     transform: scale(7.8);
     margin: 0;
 }
+/*increase the title size*/
 #title {
     font-size: 50px;
 }
+/*positioning the logout button*/
 #logout {
     text-align: left;
     position: absolute;
