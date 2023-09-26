@@ -37,4 +37,81 @@ input {
     justify-content: center;
     max-height: 40px;
 }
+/*customize the image size*/
+.bsymbol {
+    transform: scale(7);
+    margin: 0;
+}
 
+/*increase the title size*/
+#title {
+    font-size: 50px;
+}
+
+.dropdown-menu {
+    display:list-item;
+    right: 0%;
+    top:30%;
+}
+
+#menu {
+    padding-right: 0px;
+    right: 0%;
+    top: 20%;
+    background-image:url('menu.png');
+    height: 50px;
+    width: 50px;
+}
+
+/*customize the plus images inside the table*/
+.plus {
+    transform: scale(0.05);
+    margin-right: 40px;;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-height: 40px;
+}
+
+/*customize the popup background*/
+.popup{
+    background: rgba(0, 0, 0, 0.6);
+    left: 0.01%;
+    width: 100%;
+    height: 150%;
+    position: absolute;
+    top:0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+/*customize the popup content*/
+.popup-content{
+    height: 400px;
+    width: 700px;
+    background: #cbc67cdc;
+    padding: 20px;
+    border-radius: 5px;
+    position: relative;
+    text-align: center;
+}
+
+/*customize the image size in the popup*/
+.img{
+    transform: scale(0.22);
+    margin: 220px;
+    margin-top: -85px;
+}
+
+/*customize the close button*/
+.close{
+    position: absolute;
+    height: 15px;
+}
+
+/*positioning the fileds in the popup*/
+.quiz {
+    top:30%;
+    position: absolute;
+}
