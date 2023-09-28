@@ -22,16 +22,16 @@ function generateGridRows(active_users, request_users) {
         //create a bootstrap row with an image, name, last name, mail, date of birth and a delete button
         const rowHtml = `
         <div class="row">
-            <div class="col-2 text-center fs-5 my-2">
+            <div class="col-1 text-center fs-5 my-2">
                     <div class="pics">
                     <img src="${item.picture}">
                 </div>
             </div>
-            <div class="col-2 text-center fs-5 my-2">${item.name}</div>
-            <div class="col-2 text-center fs-5 my-2">${item.last_name}</div>
-            <div class="col-2 text-center fs-5 my-2">${item.mail}</div>
-            <div class="col-2 text-center fs-5 my-2 date">${item.d_o_b}</div>
-            <div class="col-2 d-flex align-items-center">
+            <div class="col-2 text-center my-2">${item.name}</div>
+            <div class="col-2 text-center my-2">${item.last_name}</div>
+            <div class="col-2 text-center my-2">${item.mail}</div>
+            <div class="col-2 text-center my-2 date">${item.d_o_b}</div>
+            <div class="col-1 d-flex align-items-center justify-content-center">
                 <button class="crud"><b>מחק</b></button>
             </div>
         </div>
@@ -47,15 +47,15 @@ function generateGridRows(active_users, request_users) {
         //showing the quiz answers
         const rowHtml = `
         <div class="row">
-            <div class="col-2 text-center fs-5 my-2">
+            <div class="col-1 text-center fs-5 my-2">
                     <div class="pics">
                     <img src="${item.picture}">
                 </div>
             </div>
-            <div class="col-1 text-center my-2">${item.name}</div>
-            <div class="col-1 text-center my-2">${item.last_name}</div>
+            <div class="col-2 text-center my-2">${item.name}</div>
+            <div class="col-2 text-center my-2">${item.last_name}</div>
             <div class="col-2 text-center my-2 mail">${item.mail}</div>
-            <div class="col-1 text-center my-2 date">${item.d_o_b}</div>
+            <div class="col-2 text-center my-2 date">${item.d_o_b}</div>
             <div class="col-1 plus">
                 <img src="plus.jpg" id="plus${i}">
             </div>
