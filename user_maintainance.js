@@ -103,7 +103,7 @@ $(document).ready(function() {
     
 });
 
-// once ckicking the close button close the popup
+// once clicking the close button close the popup
 $('.close').click(function() {
     $('.popup').css('display', 'none');
 });

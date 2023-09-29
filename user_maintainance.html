@@ -10,26 +10,28 @@
 </head>
 
 <body dir="rtl">
-    <div>
-        <button id="menu"></button>
-        <div class="dropdown-menu dropdown-menu-right">
-            <a class="dropdown-item" href="#">משחקים</a>
-            <a class="dropdown-item" href="#">צ'אט</a>
-            <a class="dropdown-item" href="#">קבוצות</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Separated link</a>
-        </div>
+    <div class="dropdown">
+        <button class="btn btn-warning menu btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Menu
+        </button>   
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">משחקים</a></li>
+            <li><a class="dropdown-item" href="#">צ'אט</a></li>
+            <li><a class="dropdown-item" href="#">קבוצות</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Separated link</a></li>
+        </ul>
     </div>
     <div class="container">
-        <div class="row p-4 g-5">
-            <div class="col-md-9 text-center">
-                <div id="title">עם הנצח</div>
-            </div>
-            <div class="col-1">
-                <img class="col-3 bsymbol" src="symbol.png">
+        <div class="col-1 symbol">
+            <img class="col-3 bsymbol" src="symbol.png">
+        </div>
+        <div class="row p g-5">
+            <div class="col-md-15 text-center">
+                <div id="title"><b>עם הנצח</b></div>
             </div>
         </div>
-        <div class="row p-2">
+        <div class="row p">
             <div class="my-4">
                 <div class="fs-2">משתמשים פעילים</div>
             </div>

@@ -42,8 +42,12 @@ input {
 }
 /*customize the image size*/
 .bsymbol {
-    transform: scale(7);
-    margin: 0;
+    /* transform: scale(5); */
+    margin-top: 20px;
+    position:absolute;
+    top: -10px;
+    left: 20px;
+    width: 120px;
 }
 
 /*increase the title size*/
@@ -130,4 +134,13 @@ input:hover{
     width: 188px;
     height: 29.2px;
     text-align: center;
+}
+
+.dropdown-menu{
+    display: none;
+}
+
+.dropdown{
+    margin-right: 10px;
+    padding-top: 10px;
 }
