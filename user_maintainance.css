@@ -18,8 +18,6 @@ input {
 
 /*customize the action buttons*/
 .crud {
-    /*background-color:rgba(0, 51, 255, 0.842);
-    color:lavender;*/
     font-size: 16px;
     border-radius: 10%;
     background-color: rgba(0, 0, 0, 0.797);
@@ -40,9 +38,9 @@ input {
     justify-content: center;
     max-height: 40px;
 }
+
 /*customize the image size*/
 .bsymbol {
-    /* transform: scale(5); */
     margin-top: 20px;
     position:absolute;
     top: -10px;
@@ -143,4 +141,8 @@ input:hover{
 .dropdown{
     margin-right: 10px;
     padding-top: 10px;
+}
+
+.btn-dark, .btn-dark:hover{
+    color: rgb(245, 229, 3);
 }
