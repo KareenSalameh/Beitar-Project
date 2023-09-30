@@ -143,6 +143,6 @@ input:hover{
     padding-top: 10px;
 }
 
-.btn-dark, .btn-dark:hover{
+.btn-dark, .btn-dark:hover, .btn-dark::after{
     color: rgb(245, 229, 3);
 }
