@@ -1,15 +1,15 @@
 //static data - should be remove after having a database access
 //active users
 const jsonData = [
-    { "name": "avi", "last_name": "yahoo", "mail": "lucyhaim@gmail.com", "d_o_b": "28/09/1996", "picture":"/pictures/man1.jpg" },
-    { "name": "yossi", "last_name": "benaiun", "mail": "balazor@gmail.com", "d_o_b": "23/04/1995","picture":"/pictures/man2.png" },
-    { "name": "benni", "last_name": "bann", "mail": "n1baarez@gmail.com", "d_o_b": "21/04/1992", "picture":"/pictures/man3.jpg" }
+    { "name": "avi", "last_name": "yahoo", "mail": "lucyhaim@gmail.com", "d_o_b": "28/09/1996", "picture":"../pictures/man1.jpg" },
+    { "name": "yossi", "last_name": "benaiun", "mail": "balazor@gmail.com", "d_o_b": "23/04/1995","picture":"../pictures/man2.jpg" },
+    { "name": "benni", "last_name": "bann", "mail": "n1baarez@gmail.com", "d_o_b": "21/04/1992", "picture":"../pictures/man3.jpg" }
 ];
 //joining requests
 const jsonData2 = [
-    { "name": "arbel", "last_name": "yahoo", "mail": "lucyhaim@gmail.com", "d_o_b": "28/09/1999", "picture":"/pictures/man1.jpg", "when":"1998", "who":"vered","did":"no" },
-    { "name": "reut", "last_name": "benaiun", "mail": "balazor@gmail.com", "d_o_b": "23/04/1999","picture":"/pictures/man2.jpg", "when":"1999", "who":"shua","did":"no!" },
-    { "name": "daniel", "last_name": "bann", "mail": "n1baarez@gmail.com", "d_o_b": "21/04/1999", "picture":"/pictures/man3.jpg", "when":"התשב", "who":"glazer","did":"maybe" }
+    { "name": "arbel", "last_name": "yahoo", "mail": "lucyhaim@gmail.com", "d_o_b": "28/09/1999", "picture":"../pictures/man1.jpg", "when":"1998", "who":"vered","did":"no" },
+    { "name": "reut", "last_name": "benaiun", "mail": "balazor@gmail.com", "d_o_b": "23/04/1999","picture":"../pictures/man2.jpg", "when":"1999", "who":"shua","did":"no!" },
+    { "name": "daniel", "last_name": "bann", "mail": "n1baarez@gmail.com", "d_o_b": "21/04/1999", "picture":"../pictures/man3.jpg", "when":"התשב", "who":"glazer","did":"maybe" }
 ];
 
 function generateGridRows(active_users, request_users) {
@@ -57,7 +57,7 @@ function generateGridRows(active_users, request_users) {
             <div class="col-2 text-center my-2 mail">${item.mail}</div>
             <div class="col-2 text-center my-2 date">${item.d_o_b}</div>
             <div class="col-1 plus">
-                <img src="plus.jpg" id="plus${i}">
+                <img src="../pictures/plus.jpg" id="plus${i}">
             </div>
             <div class="col-1 d-flex align-items-center accept">
                 <button class="crud"><b>אשר</b></button>

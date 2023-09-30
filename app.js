@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
-const users = require('/routes/Users');
+const users = require('./routes/Users');
 
 require('custom-env').env(process.env.NODE_ENV, './config');
 
