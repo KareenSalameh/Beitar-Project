@@ -2,7 +2,7 @@
 //active users
 const jsonData = [
     { "name": "avi", "last_name": "yahoo", "mail": "lucyhaim@gmail.com", "d_o_b": "28/09/1996", "picture":"/pictures/man1.jpg" },
-    { "name": "yossi", "last_name": "benaiun", "mail": "balazor@gmail.com", "d_o_b": "23/04/1995","picture":"/pictures/man2.jpg" },
+    { "name": "yossi", "last_name": "benaiun", "mail": "balazor@gmail.com", "d_o_b": "23/04/1995","picture":"/pictures/man2.png" },
     { "name": "benni", "last_name": "bann", "mail": "n1baarez@gmail.com", "d_o_b": "21/04/1992", "picture":"/pictures/man3.jpg" }
 ];
 //joining requests
