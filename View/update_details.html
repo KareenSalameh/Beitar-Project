@@ -13,60 +13,88 @@
 
 <body dir="rtl">
     <div class="container">
-
         <div class="row p-4 g-5">
-            <div class="col-md-11 text-center">
-                <div id="title">עם הנצח</div>
+            <div class="col-1 login">
+                <a class="fs-5" href="login.html">התחבר</a>
+            </div>
+            <div class="col-md-10 text-center move">
+                <div id="title"><b>עם הנצח</b></div>
             </div>
             <div class="col-1">
-                <img class="col-3 bsymbol" src="pictures/symbol.png">
+                <img class="col-3 bsymbol" src="../pictures/symbol.png">
             </div>
         </div>
         <div class="row p-2">
-            <div class="my-4">
-                <div class="fs-2">עדכון פרטים</div>
+            <div class="col my-2">
+                <div class="fs-3"><u>עדכון פרטים</u></div>
             </div>
         </div>
-        <div class="row">
-            <div class="col">
-                <div class="form-group d-flex">
-                    <div class="col-3 my-4 fs-5">שם פרטי</div>
-                    <input class="col-5 my-4 fs-5" id="first_name">
+        <form>
+            <div class="row form-outline">
+                <div class="col form-outline row p-4">
+                    <div class="col-md-3">
+                        <label class="form-label fs-5">שם פרטי</label>
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" class="form-control" placeholder="דוגמה: ישראל">
+                    </div>
+                    <div class="form-text"></div>
+                </div>
+                <div class="col form-outline row p-4">
+                    <div class="col-md-3">
+                        <label class="form-label fs-5">שם משפחה</label>
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" class="form-control" placeholder="דוגמה: ישראלי">
+                    </div>
+                    <div class="form-text"></div>
                 </div>
             </div>
-            <div class="col-md-6 d-flex">
-                <div class="col-3 my-4 fs-5">שם משפחה</div>
-                <input class="col-5 my-4" id="last_name">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <div class="form-group d-flex">
-                    <div class="col-3 my-4 fs-5">דואר אלקטרוני</div>
-                    <input readonly value="avi@gmail.com" class="col-5 my-4 fs-5" id="mail">
+            <div class="row form-outline">
+                <div class="col form-outline row p-4">
+                    <div class="col-md-3">
+                        <label class="form-label fs-5">דואר אלקטרוני</label>
+                    </div>
+                    <div class="col-md-3">
+                        <input type="email" class="form-control" placeholder="example@gmail.com">
+                    </div>
+                    <div class="form-text"></div>
+                </div>
+                <div class="col form-outline row p-4">
+                    <div class="col-md-3">
+                        <label class="form-label fs-5">סיסמה</label>
+                    </div>
+                    <div class="col-md-3">
+                        <input type="password" class="form-control" placeholder="סיסמה חייבת להכיל לפחות 4 תווים.">
+                    </div>
+                    <div class="form-text"></div>
                 </div>
             </div>
-            <div class="col-md-6 d-flex">
-                <div class="col-3 my-4 fs-5">סיסמה</div>
-                <input type="password" class="col-5 my-4" id="password">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <div class="form-group d-flex">
-                    <div class="col-3 my-4 fs-5">תאריך לידה</div>
-                    <input readonly type="date" class="col-5 my-4 fs-5" id="d_o_b">
+            <div class="row form-outline">
+                <div class="col form-outline row p-4">
+                    <div class="col-md-3">
+                        <label class="form-label fs-5">תאריך</label>
+                    </div>
+                    <div class="col-md-3">
+                        <input type="date" class="form-control">
+                    </div>
+                    <div class="form-text"></div>
+                </div>
+                <div class="col form-outline row p-4">
+                    <div class="col-md-3">
+                        <label class="form-label fs-5">תמונת פרופיל</label>
+                    </div>
+                    <div class="col-md-3">
+                        <input type="file" class="form-control">
+                    </div>
+                    <div class="form-text"></div>
                 </div>
             </div>
-            <div class="col-md-6 d-flex">
-                <div class="col-3 my-4 fs-5">תמונה</div>
-                <input type="file" class="col-5 my-4" id="password">
-            </div>
-        </div>
+        </form>
         <div class="row my-4">
             <div class="col">
                 <div class="col-md-12 text-center">
-                    <a href="#" class="button col-1 my-4" id="button">עדכן</a>
+                    <a href="#" class="button col-1 my-4 ub" id="button">עדכן</a>
                 </div>
             </div>
         </div>
