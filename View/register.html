@@ -13,75 +13,103 @@
 
 <body dir="rtl">
     <div class="container min-vh-100">
-
-        <div class="row p-4 g-5">
-            <div class="col-md-1 text-center">
+        <div class="row p-3">
+            <!-- <div class="col-md-1 text-center">
+                <a class="fs-5" href="login.html"></a>
+            </div> -->
+            <div class="col-1 login">
                 <a class="fs-5" href="login.html">התחבר</a>
             </div>
-            <div class="col-md-10 text-center">
-                <div id="title">עם הנצח</div>
+            <div class="col-md-10 text-center move">
+                <div id="title"><b>עם הנצח</b></div>
             </div>
             <div class="col-1">
                 <img class="col-3 bsymbol" src="../pictures/symbol.png">
             </div>
         </div>
         <div class="row p-2">
-            <div class="col my-4">
-                <div class="fs-2">הירשם</div>
+            <div class="col my-2">
+                <div class="fs-3"><u>טופס הרשמה</u></div>
             </div>
         </div>
-        <div class="row">
-            <div class="col">
-                <div class="form-group d-flex">
-                    <div class="col-3 my-4 fs-5">שם פרטי</div>
-                    <input class="col-5 my-4 fs-5" id="first_name">
+        <form>
+            <div class="row form-outline">
+                <div class="col form-outline row p-4">
+                    <div class="col-md-3">
+                        <label class="form-label fs-5">שם פרטי</label>
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" class="form-control" placeholder="דוגמה: ישראל">
+                    </div>
+                    <div class="form-text"></div>
+                </div>
+                <div class="col form-outline row p-4">
+                    <div class="col-md-3">
+                        <label class="form-label fs-5">שם משפחה</label>
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" class="form-control" placeholder="דוגמה: ישראלי">
+                    </div>
+                    <div class="form-text"></div>
                 </div>
             </div>
-            <div class="col-md-6 d-flex">
-                <div class="col-3 my-4 fs-5">שם משפחה</div>
-                <input class="col-5 my-4" id="last_name">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <div class="form-group d-flex">
-                    <div class="col-3 my-4 fs-5">דואר אלקטרוני</div>
-                    <input class="col-5 my-4 fs-5" id="mail">
+            <div class="row form-outline">
+                <div class="col form-outline row p-4">
+                    <div class="col-md-3">
+                        <label class="form-label fs-5">דואר אלקטרוני</label>
+                    </div>
+                    <div class="col-md-3">
+                        <input type="email" class="form-control" placeholder="example@gmail.com">
+                    </div>
+                    <div class="form-text"></div>
+                </div>
+                <div class="col form-outline row p-4">
+                    <div class="col-md-3">
+                        <label class="form-label fs-5">סיסמה</label>
+                    </div>
+                    <div class="col-md-3">
+                        <input type="password" class="form-control" placeholder="סיסמה חייבת להכיל לפחות 4 תווים.">
+                    </div>
+                    <div class="form-text"></div>
                 </div>
             </div>
-            <div class="col-md-6 d-flex">
-                <div class="col-3 my-4 fs-5">סיסמה</div>
-                <input type="password" class="col-5 my-4" id="password">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <div class="form-group d-flex">
-                    <div class="col-3 my-4 fs-5">תאריך לידה</div>
-                    <input type="date" class="col-5 my-4 fs-5" id="d_o_b">
+            <div class="row form-outline">
+                <div class="col form-outline row p-4">
+                    <div class="col-md-3">
+                        <label class="form-label fs-5">תאריך</label>
+                    </div>
+                    <div class="col-md-3">
+                        <input type="date" class="form-control">
+                    </div>
+                    <div class="form-text"></div>
+                </div>
+                <div class="col form-outline row p-4">
+                    <div class="col-md-3">
+                        <label class="form-label fs-5">תמונת פרופיל</label>
+                    </div>
+                    <div class="col-md-3">
+                        <input type="file" class="form-control">
+                    </div>
+                    <div class="form-text"></div>
                 </div>
             </div>
-            <div class="col-md-6 d-flex">
-                <div class="col-3 my-4 fs-5">תמונה</div>
-                <input type="file" class="col-5 my-4" id="password">
-            </div>
-        </div>
-        <div class="row p-5">
+        </form>
+        <div class="row p-4">
             <div class="col">
-                <div class="col-md-12 text-center">
-                    <a href="#" class="button col-1 my-4" id="button">שאלון</a>
+                <div class="col-md-12">
+                    <a href="#" class="button col-1 my-4" id="quiz">שאלון</a>
                 </div>
             </div>
         </div>
         <div class="popup">
             <div class="popup-content">
-                <img class="close" src="pictures/close.png">
-                <img class="img" src="pictures/symbol.png">
+                <img class="close" src="../pictures/close.png">
+                <img class="img" src="../pictures/symbol.png">
                 <div class="container quiz">
                     <div class="row">
                         <div class="col">
                             <div class="form-group d-flex">
-                                <div class="col-6 my-2 fs-5">מתי התאהבת בביתר</div>
+                                <div class="col-6 my-2 fs-5">מתי התאהבת בביתר?</div>
                                 <input class="col-4 my-2 fs-5" id="love">
                             </div>
                         </div>
@@ -89,7 +117,7 @@
                     <div class="row">
                         <div class="col">
                             <div class="form-group d-flex">
-                                <div class="col-6 my-2 fs-5">מי השחקן האהוב עליך</div>
+                                <div class="col-6 my-2 fs-5">מי השחקן האהוב עליך?</div>
                                 <input class="col-4 my-2 fs-5" id="player">
                             </div>
                         </div>
@@ -97,7 +125,7 @@
                     <div class="row">
                         <div class="col">
                             <div class="form-group d-flex">
-                                <div class="col-md-6 my-2 fs-5">האם אי פעם לבשת אדום</div>
+                                <div class="col-md-6 my-2 fs-5">האם אי פעם לבשת אדום?</div>
                                 <input class="col-4 my-2 fs-5" id="red">
                             </div>
                         </div>
@@ -106,14 +134,14 @@
                 <div class="row">
                     <div class="col">
                         <div class="col-md-12 text-center">
-                            <button id="send" class="button col-2 mt-n3">שלח</button>
+                            <a href="pending.html"><button id="send" class="button col-2 mt-n3">שלח</button></a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <script src="register.js"></script>
+    <script src="../register.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
         crossorigin="anonymous"></script>
