@@ -6,13 +6,12 @@ const users = require('./routes/Users');
 
 require('custom-env').env(process.env.NODE_ENV, './Config');
 
-// app.use(express.static('View'))
-
 mongoose.connect(process.env.CONNECTION_STRING, 
                 {   useNewUrlParser: true, 
                     useUnifiedTopology: true });
 
 var app = express();
+app.use(express.static('View'));
 app.use(cors());
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(express.json());

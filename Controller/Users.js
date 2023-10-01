@@ -1,5 +1,12 @@
 const usersService = require('../Services/Users');
 
+function isLoggedIn(req, res, next) {
+  if (req.session.username != null)
+    return next()
+  else
+    res.redirect('/login')
+}
+
 const createUser = async (req, res) => {
     const newUser = await usersService.createUser(req.body.Email, req.body.Password, req.body.First_Name, req.body.Last_Name, req.body.Date_Of_Birth, req.body.Img, req.body.When, req.body.Who, req.body.Did);
     res.json(newUser);

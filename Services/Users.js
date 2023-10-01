@@ -1,7 +1,12 @@
 const User = require('../Models/Users');
 const path = require('path');
 
-const createUser = async (Email, Password, First_Name, Last_Name, Date_Of_Birth, Img, When, Who, Did) => {
+const login = async (email, password) => {
+    const user = await User.findOne({email, password});
+    return user != null;
+};
+
+const register = async (Email, Password, First_Name, Last_Name, Date_Of_Birth, Img, When, Who, Did) => {
     const user = new User({
         Email, Password, First_Name, Last_Name, Date_Of_Birth, Img, When, Who, Did
     });
@@ -15,17 +20,14 @@ const createUser = async (Email, Password, First_Name, Last_Name, Date_Of_Birth,
     return await user.save();
 };
 
-const getUserById = async (id) => {
-    return await User.findById(id);
-};
-const getUsers = async (res) => {
-    return await res.sendFile('login.html', { root: path.join(__dirname, '../View') });
-};
+// const getUsers = async (res) => {
+//     return await res.getFile(path.resolve(__dirname, '..','View', 'login.html'));
+// };
 
-const updateUser = async (id, Password, Img) => {
-    const user = await getUserById(id);
+const updateUser = async (Email, Password, Img) => {
+    const user = await login(Email);
     if (!user)
-        return null;
+        return null;    
 
     if(!Password)  
     {
@@ -35,23 +37,21 @@ const updateUser = async (id, Password, Img) => {
     {
         user.Img = Img;
     }  
-    await user.save();
-    return user;
+    return await user.save();
 };
 
-const deleteUser = async (id) => {
-    const user = await getUserById(id);
+const deleteUser = async (Email) => {
+    const user = await login(Email);
     if (!user)
         return null;
 
-    await user.remove();
-    return user;
+    return await user.remove();
 };
 
 module.exports = {
-    createUser,
-    getUserById,
-    getUsers,
+    register,
+    login,
+    //getUsers,
     updateUser,
     deleteUser
 }

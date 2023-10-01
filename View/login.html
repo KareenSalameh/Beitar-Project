@@ -13,44 +13,38 @@
 
 <body dir="rtl">
     <div class="container">
-
-        <div class="row p-4 g-5">
-            <div class="col-md-1 text-center">
-                <a class="fs-5" href="register.html">הירשם</a>
-            </div>
-            <div class="col-md-10 text-center">
-                <div id="title">עם הנצח</div>
+        <div class="row p-4">
+            <div class="col-md-10 text-center move down">
+                <div id="title"><b>עם הנצח</b></div>
             </div>
             <div class="col-1">
-                <img class="col-3 bsymbol" src="pictures/symbol.png">
+                <img class="col-3 bsymbol" src="../pictures/symbol.png">
             </div>
-        </div>
-        <div class="row p-4 move">
-            <div class="col-md-4">
-                <div class="fs-2">התחבר</div>
+        </div>  
+        <form>
+            <div class="form-outline row p-4 text-center justify-content-center">
+                <div class="col-md-2">
+                    <label class="form-label fs-5">דואר אלקטרוני</label>
+                </div>
+                <div class="col-md-3">
+                    <input type="email" class="form-control" placeholder="example@gmail.com">
+                </div>
+                <div id="emailHelp" class="form-text"></div>
             </div>
-        </div>
-        <div class="row p-4 move">
-            <div class="col-md-4">
-                <div class="fs-5">דואר אלקטרוני</div>
+            <div class="form-outline row p-4 text-center justify-content-center">
+                <div class="col-md-2">
+                    <label class="form-label fs-5">סיסמה</label>
+                </div>
+                <div class="col-md-3">
+                    <input type="password" class="form-control" placeholder=":Please enter you password">
+                </div>
             </div>
-            <div class="col-md-3">
-                <input id="mail">
+            <div class="p-4 col-md-10 d-flex text-center justify-content-center move">
+                <button type="submit" class="btn btn-primary">היכנס</button>
             </div>
-        </div>
-        <div class="row p-4 move">
-            <div class="col-md-4">
-                <div class="fs-5">סיסמה</div>
-            </div>
-            <div class="col-md-3">
-                <input type="password" id="password">
-            </div>
-        </div>
-        <div class="row p-5 move">
-            <div class="col-md-10 d-flex justify-content-center">
-                <button id="login" class="btn btn-primary btn-lg">היכנס</button>
-            </div>
-        </div>
+        </form>
+        <div class="text-center">
+            <p>לא רשום עדיין? <a href="register.html">הירשם</a></p>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
