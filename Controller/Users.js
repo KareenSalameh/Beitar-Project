@@ -11,6 +11,8 @@ function loginForm(req, res) { res.render("login", {}) }
 
 function registerForm(req, res) { res.render("register", {}) }
 
+function pendingForm(req, res) { res.render("pending", {}) }
+
 function logout(req, res) {
   req.session.destroy(() => {
     res.redirect('/login');
@@ -20,7 +22,7 @@ function logout(req, res) {
 async function login(req, res) {
   const { Email, Password } = req.body
 
-  const result = await loginService.login(Email, Password)
+  const result = await usersService.login(Email, Password)
   if (result) {
     req.session.Email = Email;
     res.redirect('/')
@@ -33,11 +35,12 @@ async function register(req, res) {
   const { Email, Password, First_Name, Last_Name, Date_Of_Birth, Img, When, Who, Did } = req.body
 
   try {
-    await loginService.register(Email, Password, First_Name, Last_Name, Date_Of_Birth, Img, When, Who, Did)    
+    await usersService.register(Email, Password, First_Name, Last_Name, Date_Of_Birth, Img, When, Who, Did)    
     req.session.Email = Email
     res.redirect('/pending')
   }
   catch (e) { 
+    console.log(e)
     res.redirect('/register?error=1')
   }    
 }
@@ -100,5 +103,6 @@ const updateUser = async (req, res) => {
     isLoggedIn, 
     logout, 
     login, 
-    register
+    register, 
+    pendingForm
   };

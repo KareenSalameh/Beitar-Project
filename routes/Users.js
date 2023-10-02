@@ -14,5 +14,6 @@ router.get("/login", userController.loginForm);
 router.post("/login", userController.login);
 router.get('/logout',userController.logout);
 router.get('/', userController.isLoggedIn, userController.register);
+router.get("/pending", userController.pendingForm);
 
 module.exports = router;
