@@ -1,10 +1,49 @@
 const usersService = require('../Services/Users');
 
 function isLoggedIn(req, res, next) {
-  if (req.session.username != null)
+  if (req.session.Email != null)
     return next()
   else
     res.redirect('/login')
+}
+
+function loginForm(req, res) { res.render("login", {}) }
+
+function registerForm(req, res) { res.render("register", {}) }
+
+function logout(req, res) {
+  req.session.destroy(() => {
+    res.redirect('/login');
+  });
+}
+
+async function login(req, res) {
+  const { Email, Password } = req.body
+
+  const result = await loginService.login(Email, Password)
+  if (result) {
+    req.session.Email = Email;
+    res.redirect('/')
+  }
+  else
+    res.redirect('/login?error=1')
+}
+
+async function register(req, res) {
+  const { Email, Password, First_Name, Last_Name, Date_Of_Birth, Img, When, Who, Did } = req.body
+
+  try {
+    await loginService.register(Email, Password, First_Name, Last_Name, Date_Of_Birth, Img, When, Who, Did)    
+    req.session.Email = Email
+    res.redirect('/pending')
+  }
+  catch (e) { 
+    res.redirect('/register?error=1')
+  }    
+}
+
+function foo(req, res) {  
+  res.render("pending", {})
 }
 
 const createUser = async (req, res) => {
@@ -55,5 +94,11 @@ const updateUser = async (req, res) => {
     getUsers,
     getUser,
     updateUser,
-    deleteUser
+    deleteUser,
+    loginForm,
+    registerForm,
+    isLoggedIn, 
+    logout, 
+    login, 
+    register
   };
