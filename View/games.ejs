@@ -39,11 +39,35 @@
             </div>
         </div>
         <div class="container" id="grid" dir="rtl">
+            <%games.forEach(item=> { %>
+                <%//create a bootstrap row with a date, rival name, stadium, result and a summary video%>
+                <div class="row">
+                    <div class="col-1">
 
-            
+                    </div>
+                    <div class="col-2 text-right my-2 fs-4 d-flex align-items-center justify-content-center">
+                        <%= item.date%>
+                    </div>
+                    <div class="col-2 text-right my-2 fs-4 d-flex align-items-center justify-content-center">
+                        <%= item.rival%>
+                    </div>
+                    <div class="col-2 text-right my-2 fs-4 d-flex align-items-center justify-content-center">
+                        <%= item.stadium%>
+                    </div>
+                    <div class="col-2 text-right my-2 fs-4 d-flex align-items-center justify-content-center">
+                        <%= item.result%>
+                    </div>
+                    <div class="col-2">
+                        <iframe width="170" height="103" src="<%= item.summary %>" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen></iframe>
+                    </div>
+                </div>
+
+            <% });%>
         </div>
 
-        
+
         <div class="row popup">
             <div class="popup-content">
                 <img class="close" src="close.png">

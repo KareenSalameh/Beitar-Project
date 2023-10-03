@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const users = require('./routes/Users');
+const games = require('./routes/Games');
 const path = require('path')
 
 require('custom-env').env(process.env.NODE_ENV, './Config');
@@ -28,5 +29,6 @@ app.set("view engine", "ejs", "css");
 app.set('views', path.join(__dirname,'View'));
 app.use(express.urlencoded({ extended: false }));  
 app.use("/", users);
+app.use("/", games);
 
 app.listen(process.env.PORT);
