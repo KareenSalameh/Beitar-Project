@@ -1,18 +1,30 @@
-body {
+body, .fs-5{
     background-color:rgb(249, 249, 249);
+    font-family: var(--bs-body-font-family);
+    margin: auto;
+    display: flex
 }
 
 /*customize the image size*/
 .bsymbol {
-    transform: scale(7.8);
-    margin: 0;
+    margin-top: 20px;
+    position:absolute;
+    top: -10px;
+    left: 20px;
+    width: 120px;
 }
 
 /*customize the fields*/
-input {
-    background-color: rgb(245, 229, 3);
-    font-size: 24px;
-    border-radius: 7%;
+input{
+    background-color: rgb(245, 229, 3) !important;
+    text-align:end;
+}
+
+/*changing the input's text border*/
+
+.form-control{
+    border-color: black;
+    border: solid;
 }
 
 /*center the content of the page*/
@@ -23,9 +35,14 @@ input {
 /*increase the title size*/
 #title {
     font-size: 50px;
+    margin-top: 4.5rem;
 }
 
 /*changing the button's text color*/
 #login {
     color: black !important;
+}
+
+#error-massage{
+    display: none;
 }

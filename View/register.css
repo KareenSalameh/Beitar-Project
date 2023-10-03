@@ -1,6 +1,8 @@
 body {
     background-color:rgb(249, 249, 249);
     text-align: right;
+    font-family: var(--bs-body-font-family);
+    margin-right: 8rex;
 }
 
 /*positioning the button inside the popup*/
@@ -10,20 +12,34 @@ body {
 
 /*customize the image size*/
 .bsymbol {
-    transform: scale(7.8);
-    margin: 0;
+    margin-top: 20px;
+    position:absolute;
+    top: -10px;
+    left: 20px;
+    width: 120px;
+}
+
+/*center the content of the page*/
+.move{
+    margin-right: 3%;
 }
 
 /*customize the fields*/
 input {
-    background-color: rgb(245, 229, 3);
-    font-size: 20px;
-    border-radius: 7%;
+    background-color: rgb(245, 229, 3) !important;
+}
+
+.form-control{
+    border-color: black;
+    border: solid;
+    width: 294px;
+    height: 40.8px;
 }
 
 /*increase the title size*/
 #title {
     font-size: 50px;
+    margin-top: 4.5rem;
 }
 
 /*customize the quiz button*/
@@ -58,6 +74,7 @@ input {
     display: none;
     justify-content: center;
     align-items: center;
+    font-family: var(--bs-body-font-family);
 }
 
 /*customize the popup content*/
@@ -88,4 +105,15 @@ input {
 .quiz {
     top:30%;
     position: absolute;
+}
+
+.qb{
+    margin-left: 40px;
+}
+
+.login{
+    margin-top: 20px;
+    position:absolute;
+    top: -10px;
+    right: 20px;
 }
