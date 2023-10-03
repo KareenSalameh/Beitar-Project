@@ -6,10 +6,11 @@ const User = new Schema({
     Email : {
         type: String,
         required: [true, 'User email required'],
-        validate: {
-            validator: () => Promise.resolve(false),
-            message: 'Email validation failed.'
-          }
+        // validate: {
+        //     validator: () => Promise.resolve(false),
+        //     message:'Email validation failed.'
+        //   },
+        unique: true
     },
     Password: {
         type: String,
