@@ -15,15 +15,12 @@ const User = new Schema({
     Password: {
         type: String,
         required: true,
-        min: [4,'Password must contain 4 characters']
     },
     First_Name : {
-        type: String,
-        required: [true, 'User first name required']
+        type: String
     },
     Last_Name : {
-        type: String,
-        required: [true,  'User last name required']
+        type: String
     },
     Date_Of_Birth : {
         type: Date,
@@ -34,16 +31,18 @@ const User = new Schema({
         default: "../pictures/default_profile_picture.jpg"
     },
     When : {
-        type: String,
-        required: [true, 'You must answer all the following question.']
+        type: String
     },
     Who : {
-        type: String,
-        required: [true, 'You must answer all the following question.']
+        type: String
     },
     Did : {
+        type: String
+    },
+    Status:{
         type: String,
-        required: [true, 'You must answer all the following question.']
+        enum: ['Pending', 'Active', 'Denied'],
+        default: 'Pending'        
     }
 });
 

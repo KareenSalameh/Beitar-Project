@@ -42,3 +42,7 @@ input{
 #login {
     color: black !important;
 }
+
+#error-massage{
+    display: none;
+}

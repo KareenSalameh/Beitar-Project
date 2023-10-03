@@ -1,8 +1,8 @@
 const User = require('../Models/Users');
 const path = require('path');
 
-const login = async (email, password) => {
-    const user = await User.findOne({email, password});
+const login = async (Email, Password) => {
+    const user = await User.findOne({Email, Password});
     return user != null;
 };
 
@@ -20,9 +20,9 @@ const register = async (Email, Password, First_Name, Last_Name, Date_Of_Birth, I
     return await user.save();
 };
 
-// const getUsers = async (res) => {
-//     return await res.getFile(path.resolve(__dirname, '..','View', 'login.html'));
-// };
+const getUser = async (Email) => {
+    return await User.findOne({Email});
+};
 
 const updateUser = async (Email, Password, Img) => {
     const user = await login(Email);
@@ -51,7 +51,7 @@ const deleteUser = async (Email) => {
 module.exports = {
     register,
     login,
-    //getUsers,
+    getUser,
     updateUser,
     deleteUser
 }

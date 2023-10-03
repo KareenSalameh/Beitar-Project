@@ -12,4 +12,4 @@ function gamesForm(req, res) { res.render("games", {games}) };
 
 module.exports = {
     gamesForm
-  };
+};

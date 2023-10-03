@@ -13,6 +13,11 @@ function registerForm(req, res) { res.render("register", {}) }
 
 function pendingForm(req, res) { res.render("pending", {}) }
 
+async function fid(req, res, Email) {  
+  const user = await usersService.getUser(req.session.Email);
+  res.render("fid", {First_Name: user.First_Name});
+  }
+
 function logout(req, res) {
   req.session.destroy(() => {
     res.redirect('/login');
@@ -25,7 +30,7 @@ async function login(req, res) {
   const result = await usersService.login(Email, Password)
   if (result) {
     req.session.Email = Email;
-    res.redirect('/')
+    res.redirect('/') //==> need to be change, after we will creade some new pages for login members. 
   }
   else
     res.redirect('/login?error=1')
@@ -45,22 +50,13 @@ async function register(req, res) {
   }    
 }
 
-function foo(req, res) {  
-  res.render("pending", {})
-}
-
-const createUser = async (req, res) => {
-    const newUser = await usersService.createUser(req.body.Email, req.body.Password, req.body.First_Name, req.body.Last_Name, req.body.Date_Of_Birth, req.body.Img, req.body.When, req.body.Who, req.body.Did);
-    res.json(newUser);
-};
-
-const getUsers = async (req, res) => {
-    const users = await usersService.getUsers(res);
-    res.json(users);
-};
+// const getUsers = async (req, res) => {
+//     const users = await usersService.getUsers(res);
+//     res.json(users);
+// };
 
 const getUser = async (req, res) => {
-    const user = await usersService.getUserById(req.params.id);
+    const user = await usersService.getUserById(req.session.Email);
     if (!user) {
         return res.status(404).json({ errors: ['User not found'] });
     }
@@ -75,7 +71,7 @@ const updateUser = async (req, res) => {
       });
     }
 
-    const user = await usersService.updateUser(req.params.id, req.body.Password, req.body.Img);
+    const user = await usersService.updateUser(req.body.Email, req.body.Password, req.body.Img);
     if (!user) {
       return res.status(404).json({ errors: ['User not found'] });
     }
@@ -84,17 +80,16 @@ const updateUser = async (req, res) => {
   };
 
   const deleteUser = async (req, res) => {
-    const user = await usersService.deleteUser(req.params.id);
+    const user = await usersService.deleteUser(req.body.Email);
     if (!user) {
       return res.status(404).json({ errors: ['User not found'] });
     }
-  
+
     res.send();
   };
 
   module.exports = {
-    createUser,
-    getUsers,
+    // getUsers,
     getUser,
     updateUser,
     deleteUser,
@@ -104,5 +99,6 @@ const updateUser = async (req, res) => {
     logout, 
     login, 
     register, 
-    pendingForm
+    pendingForm,
+    fid
   };

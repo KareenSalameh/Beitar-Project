@@ -1,5 +1,4 @@
 
-
 //once page was uploaded
 $(document).ready(function() {
     //add rows to table and return their number
