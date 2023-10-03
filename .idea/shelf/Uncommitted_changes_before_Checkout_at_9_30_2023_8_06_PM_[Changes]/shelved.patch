@@ -1,0 +1,60 @@
+Index: View/user_maintainance.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>body, input{\r\n    font-family: var(--bs-body-font-family);\r\n}\r\n\r\n/*customize the border outside the table*/ \r\n.bord {\r\n    border: 6px solid #000;\r\n    border-radius: 7%;\r\n    padding: 10px;\r\n}\r\n\r\n/*customize the search fields*/\r\ninput {\r\n    background-color: rgb(245, 229, 3);\r\n    font-size: 16px;\r\n    border-radius: 7%;\r\n}\r\n\r\n/*customize the action buttons*/\r\n.crud {\r\n    font-size: 16px;\r\n    border-radius: 10%;\r\n    background-color: rgba(0, 0, 0, 0.797);\r\n    color: rgb(245, 229, 3);\r\n    height: 80%;\r\n}\r\n\r\n.date {\r\n    text-align: left;\r\n}\r\n\r\n/*customize the images inside the table*/\r\n.pics {\r\n    transform: scale(0.22);\r\n    margin: 0;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n    max-height: 40px;\r\n}\r\n\r\n/*customize the image size*/\r\n.bsymbol {\r\n    margin-top: 20px;\r\n    position:absolute;\r\n    top: -10px;\r\n    left: 20px;\r\n    width: 120px;\r\n}\r\n\r\n/*increase the title size*/\r\n#title {\r\n    font-size: 50px;\r\n}\r\n\r\n.dropdown-menu {\r\n    display:list-item;\r\n    right: 0%;\r\n    top:30%;\r\n}\r\n\r\n#menu {\r\n    padding-right: 0px;\r\n    right: 0%;\r\n    top: 20%;\r\n    background-image:url('menu.png');\r\n    height: 50px;\r\n    width: 50px;\r\n}\r\n\r\n/*customize the plus images inside the table*/\r\n.plus {\r\n    transform: scale(0.05);\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n    max-height: 40px;\r\n}\r\n\r\n/*customize the popup background*/\r\n.popup{\r\n    background: rgba(0, 0, 0, 0.6);\r\n    left: 0.01%;\r\n    width: 100%;\r\n    height: 150%;\r\n    position: absolute;\r\n    top:0;\r\n    display: none;\r\n    justify-content: center;\r\n    align-items: center;\r\n}\r\n\r\n/*customize the popup content*/\r\n.popup-content{\r\n    height: 400px;\r\n    width: 700px;\r\n    background: #cbc67cdc;\r\n    padding: 20px;\r\n    border-radius: 5px;\r\n    position: relative;\r\n    text-align: center;\r\n}\r\n\r\n/*customize the image size in the popup*/\r\n.img{\r\n    transform: scale(0.22);\r\n    margin: 220px;\r\n    margin-top: -85px;\r\n}\r\n\r\n/*customize the close button*/\r\n.close{\r\n    position: absolute;\r\n    height: 15px;\r\n}\r\n\r\n/*positioning the fileds in the popup*/\r\n.quiz {\r\n    top:30%;\r\n    position: absolute;\r\n}\r\n\r\n.fs-4 , .fs-3 {\r\n   text-align: center;\r\n}\r\n\r\ninput:hover{\r\n        box-shadow: 0px 2px 3px rgb(192, 185, 185);\r\n}\r\n\r\n#active_d_o_b, #request_d_o_b{\r\n    width: 188px;\r\n    height: 29.2px;\r\n    text-align: center;\r\n}\r\n\r\n.dropdown-menu{\r\n    display: none;\r\n}\r\n\r\n.dropdown{\r\n    margin-right: 10px;\r\n    padding-top: 10px;\r\n}\r\n\r\n.btn-dark, .btn-dark:hover{\r\n    color: rgb(245, 229, 3);\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/View/user_maintainance.css b/View/user_maintainance.css
+--- a/View/user_maintainance.css	(revision 37862d0693a41dce1288ed0ce9eac11e8c3be499)
++++ b/View/user_maintainance.css	(date 1696092154557)
+@@ -143,6 +143,6 @@
+     padding-top: 10px;
+ }
+ 
+-.btn-dark, .btn-dark:hover{
++.btn-dark, .btn-dark:hover, .btn-dark::after{
+     color: rgb(245, 229, 3);
+ }
+\ No newline at end of file
+Index: user_maintainance.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>//static data - should be remove after having a database access\r\n//active users\r\nconst jsonData = [\r\n    { \"name\": \"avi\", \"last_name\": \"yahoo\", \"mail\": \"lucyhaim@gmail.com\", \"d_o_b\": \"28/09/1996\", \"picture\":\"/pictures/man1.jpg\" },\r\n    { \"name\": \"yossi\", \"last_name\": \"benaiun\", \"mail\": \"balazor@gmail.com\", \"d_o_b\": \"23/04/1995\",\"picture\":\"/pictures/man2.png\" },\r\n    { \"name\": \"benni\", \"last_name\": \"bann\", \"mail\": \"n1baarez@gmail.com\", \"d_o_b\": \"21/04/1992\", \"picture\":\"/pictures/man3.jpg\" }\r\n];\r\n//joining requests\r\nconst jsonData2 = [\r\n    { \"name\": \"arbel\", \"last_name\": \"yahoo\", \"mail\": \"lucyhaim@gmail.com\", \"d_o_b\": \"28/09/1999\", \"picture\":\"/pictures/man1.jpg\", \"when\":\"1998\", \"who\":\"vered\",\"did\":\"no\" },\r\n    { \"name\": \"reut\", \"last_name\": \"benaiun\", \"mail\": \"balazor@gmail.com\", \"d_o_b\": \"23/04/1999\",\"picture\":\"/pictures/man2.jpg\", \"when\":\"1999\", \"who\":\"shua\",\"did\":\"no!\" },\r\n    { \"name\": \"daniel\", \"last_name\": \"bann\", \"mail\": \"n1baarez@gmail.com\", \"d_o_b\": \"21/04/1999\", \"picture\":\"/pictures/man3.jpg\", \"when\":\"התשב\", \"who\":\"glazer\",\"did\":\"maybe\" }\r\n];\r\n\r\nfunction generateGridRows(active_users, request_users) {\r\n    //table item access\r\n    const gridContainer = $(\"#grid\");\r\n    const gridContainer2 = $(\"#grid2\");\r\n\r\n    //for each object from the db\r\n    active_users.forEach(item => {\r\n        //create a bootstrap row with an image, name, last name, mail, date of birth and a delete button\r\n        const rowHtml = `\r\n        <div class=\"row\">\r\n            <div class=\"col-1 text-center fs-5 my-2\">\r\n                    <div class=\"pics\">\r\n                    <img src=\"${item.picture}\">\r\n                </div>\r\n            </div>\r\n            <div class=\"col-2 text-center my-2\">${item.name}</div>\r\n            <div class=\"col-2 text-center my-2\">${item.last_name}</div>\r\n            <div class=\"col-2 text-center my-2\">${item.mail}</div>\r\n            <div class=\"col-2 text-center my-2 date\">${item.d_o_b}</div>\r\n            <div class=\"col-1 d-flex align-items-center justify-content-center\">\r\n                <button class=\"crud\"><b>מחק</b></button>\r\n            </div>\r\n        </div>\r\n        `;\r\n        //add the row to the table item\r\n        gridContainer.append(rowHtml);\r\n    });\r\n\r\n    var i = 0;\r\n    //for each object from the db\r\n    request_users.forEach(item => {\r\n        //create a bootstrap row with an image, name, last name, mail, date of birth and buttons for accepting, denying and\r\n        //showing the quiz answers\r\n        const rowHtml = `\r\n        <div class=\"row\">\r\n            <div class=\"col-1 text-center fs-5 my-2\">\r\n                    <div class=\"pics\">\r\n                    <img src=\"${item.picture}\">\r\n                </div>\r\n            </div>\r\n            <div class=\"col-2 text-center my-2\">${item.name}</div>\r\n            <div class=\"col-2 text-center my-2\">${item.last_name}</div>\r\n            <div class=\"col-2 text-center my-2 mail\">${item.mail}</div>\r\n            <div class=\"col-2 text-center my-2 date\">${item.d_o_b}</div>\r\n            <div class=\"col-1 plus\">\r\n                <img src=\"plus.jpg\" id=\"plus${i}\">\r\n            </div>\r\n            <div class=\"col-1 d-flex align-items-center accept\">\r\n                <button class=\"crud\"><b>אשר</b></button>\r\n            </div>\r\n            <div class=\"col-1 d-flex align-items-center deny\">\r\n                <button class=\"crud\"><b>דחה</b></button>\r\n            </div>\r\n        </div>\r\n        `;\r\n        i++;\r\n        //add the row to the table item\r\n        gridContainer2.append(rowHtml);\r\n    });\r\n    //add a border outside the table\r\n    gridContainer.addClass(\"bord\");\r\n    gridContainer2.addClass(\"bord\");\r\n\r\n    //return number of rows added\r\n    return i;\r\n}\r\n\r\nvar countrows;\r\n//once page was uploaded\r\n$(document).ready(function() {\r\n    //add rows to table and return their number\r\n    countrows = generateGridRows(jsonData, jsonData2);\r\n\r\n    //for each row added\r\n    for (let index = 0; index < countrows; index++) {\r\n        //once clicking th plus image\r\n        $('#plus' + index).click(function() {\r\n            //moving the counter to different variable for preventing ambguity\r\n            const dataIndex = index;\r\n\r\n            //display popup with the data from the specipic line\r\n            //when connecting the page to database, these lines to be adjusted\r\n            $('.popup').css('display', 'flex');\r\n            $('#love').val(jsonData2[dataIndex][\"when\"]);\r\n            $('#player').val(jsonData2[dataIndex][\"who\"]);\r\n            $('#red').val(jsonData2[dataIndex][\"did\"]);\r\n        });\r\n    }\r\n    \r\n});\r\n\r\n// once clicking the close button close the popup\r\n$('.close').click(function() {\r\n    $('.popup').css('display', 'none');\r\n});
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/user_maintainance.js b/user_maintainance.js
+--- a/user_maintainance.js	(revision 37862d0693a41dce1288ed0ce9eac11e8c3be499)
++++ b/user_maintainance.js	(date 1696091734423)
+@@ -1,15 +1,15 @@
+ //static data - should be remove after having a database access
+ //active users
+ const jsonData = [
+-    { "name": "avi", "last_name": "yahoo", "mail": "lucyhaim@gmail.com", "d_o_b": "28/09/1996", "picture":"/pictures/man1.jpg" },
+-    { "name": "yossi", "last_name": "benaiun", "mail": "balazor@gmail.com", "d_o_b": "23/04/1995","picture":"/pictures/man2.png" },
+-    { "name": "benni", "last_name": "bann", "mail": "n1baarez@gmail.com", "d_o_b": "21/04/1992", "picture":"/pictures/man3.jpg" }
++    { "name": "avi", "last_name": "yahoo", "mail": "lucyhaim@gmail.com", "d_o_b": "28/09/1996", "picture":"../pictures/man1.jpg" },
++    { "name": "yossi", "last_name": "benaiun", "mail": "balazor@gmail.com", "d_o_b": "23/04/1995","picture":"../pictures/man2.jpg" },
++    { "name": "benni", "last_name": "bann", "mail": "n1baarez@gmail.com", "d_o_b": "21/04/1992", "picture":"../pictures/man3.jpg" }
+ ];
+ //joining requests
+ const jsonData2 = [
+-    { "name": "arbel", "last_name": "yahoo", "mail": "lucyhaim@gmail.com", "d_o_b": "28/09/1999", "picture":"/pictures/man1.jpg", "when":"1998", "who":"vered","did":"no" },
+-    { "name": "reut", "last_name": "benaiun", "mail": "balazor@gmail.com", "d_o_b": "23/04/1999","picture":"/pictures/man2.jpg", "when":"1999", "who":"shua","did":"no!" },
+-    { "name": "daniel", "last_name": "bann", "mail": "n1baarez@gmail.com", "d_o_b": "21/04/1999", "picture":"/pictures/man3.jpg", "when":"התשב", "who":"glazer","did":"maybe" }
++    { "name": "arbel", "last_name": "yahoo", "mail": "lucyhaim@gmail.com", "d_o_b": "28/09/1999", "picture":"../pictures/man1.jpg", "when":"1998", "who":"vered","did":"no" },
++    { "name": "reut", "last_name": "benaiun", "mail": "balazor@gmail.com", "d_o_b": "23/04/1999","picture":"../pictures/man2.jpg", "when":"1999", "who":"shua","did":"no!" },
++    { "name": "daniel", "last_name": "bann", "mail": "n1baarez@gmail.com", "d_o_b": "21/04/1999", "picture":"../pictures/man3.jpg", "when":"התשב", "who":"glazer","did":"maybe" }
+ ];
+ 
+ function generateGridRows(active_users, request_users) {
+@@ -57,7 +57,7 @@
+             <div class="col-2 text-center my-2 mail">${item.mail}</div>
+             <div class="col-2 text-center my-2 date">${item.d_o_b}</div>
+             <div class="col-1 plus">
+-                <img src="plus.jpg" id="plus${i}">
++                <img src="../pictures/plus.jpg" id="plus${i}">
+             </div>
+             <div class="col-1 d-flex align-items-center accept">
+                 <button class="crud"><b>אשר</b></button>
