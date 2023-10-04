@@ -9,20 +9,17 @@
     <link rel="stylesheet" href="games.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
-
+    
 <body dir="rtl">
     <div class="dropdown">
-        <button class="btn btn-dark menu btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown"
-            aria-expanded="false">
+        <button class="btn btn-dark menu btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
             Menu
-        </button>
+        </button>   
         <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="#">משחקים</a></li>
             <li><a class="dropdown-item" href="#">צ'אט</a></li>
             <li><a class="dropdown-item" href="#">קבוצות</a></li>
-            <li>
-                <hr class="dropdown-divider">
-            </li>
+            <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#">Separated link</a></li>
         </ul>
     </div>
@@ -43,36 +40,33 @@
                 <img id="teddi" class="col-3" src="../pictures/teddi.jpg">
             </div>
         </div>
-        <div class="table-wrapper-scroll-y my-custom-scrollbar">
-            <div class="container" id="grid" dir="rtl">
-                <%games.forEach(item=> { %>
-                    <% //create a bootstrap row with a date, rival name, stadium, result and a summary video%>
-                        <div class="row">
-                            <div class="col-1">
+        <div class="container" id="grid" dir="rtl">
+            <%games.forEach(item=> { %>
+                <%//create a bootstrap row with a date, rival name, stadium, result and a summary video%>
+                <div class="row">
+                    <div class="col-1">
 
-                            </div>
-                            <div class="col-2 text-right my-2 fs-4 d-flex align-items-center justify-content-center">
-                                <%= item.date%>
-                            </div>
-                            <div class="col-2 text-right my-2 fs-4 d-flex align-items-center justify-content-center">
-                                <%= item.rival%>
-                            </div>
-                            <div
-                                class="stadium col-2 text-right my-2 fs-4 d-flex align-items-center justify-content-center">
-                                <%= item.stadium%>
-                            </div>
-                            <div class="col-2 text-right my-2 fs-4 d-flex align-items-center justify-content-center">
-                                <%= item.result%>
-                            </div>
-                            <div class="col-2">
-                                <iframe width="170" height="103" src="<%= item.summary %>" frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                    allowfullscreen></iframe>
-                            </div>
-                        </div>
+                    </div>
+                    <div class="col-2 text-right my-2 fs-4 d-flex align-items-center justify-content-center">
+                        <%= item.date%>
+                    </div>
+                    <div class="col-2 text-right my-2 fs-4 d-flex align-items-center justify-content-center">
+                        <%= item.rival%>
+                    </div>
+                    <div class="stadium col-2 text-right my-2 fs-4 d-flex align-items-center justify-content-center">
+                        <%= item.stadium%>
+                    </div>
+                    <div class="col-2 text-right my-2 fs-4 d-flex align-items-center justify-content-center">
+                        <%= item.result%>
+                    </div>
+                    <div class="col-2">
+                        <iframe width="170" height="103" src="<%= item.summary %>" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen></iframe>
+                    </div>
+                </div>
 
-                        <% });%>
-            </div>
+            <% });%>
         </div>
 
 

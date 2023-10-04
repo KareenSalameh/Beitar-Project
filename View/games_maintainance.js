@@ -1,4 +1,3 @@
-
 //once page was uploaded
 $(document).ready(function() {
     //for each row in the grid add a click function on the stadium

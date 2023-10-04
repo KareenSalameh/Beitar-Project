@@ -10,6 +10,17 @@ var games = [
 
 function gamesForm(req, res) { res.render("games", {games}) };
 
+//function gamesMaintainForm(req, res) { res.render("games_maintainance", {games}) };
+
+function games(req, res) {
+   res.redirect('/games');
+}
+/*
+function games_maintainance(req, res) {
+  res.redirect('/games_maintainance');
+}*/
+
 module.exports = {
-    gamesForm
+    gamesForm,
+    gamesMaintainForm
 };
