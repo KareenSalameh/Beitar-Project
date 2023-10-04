@@ -28,7 +28,9 @@ app.use(cors());
 app.set("view engine", "ejs", "css");
 app.set('views', path.join(__dirname,'View'));
 app.use(express.urlencoded({ extended: false }));  
+//goes to router (Users)
 app.use("/", users);
+// goes to router (Games)
 app.use("/", games);
 
 app.listen(process.env.PORT);

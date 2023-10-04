@@ -7,6 +7,8 @@ function isLoggedIn(req, res, next) {
     res.redirect('/login')
 }
 
+//Getters
+
 function loginForm(req, res) { res.render("login", {}) }
 
 function registerForm(req, res) { res.render("register", {}) }
@@ -23,6 +25,8 @@ function logout(req, res) {
     res.redirect('/login');
   });
 }
+
+//POST
 
 async function login(req, res) {
   const { Email, Password } = req.body
