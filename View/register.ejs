@@ -85,7 +85,7 @@
             <div class="row form-outline">
                 <div class="col form-outline row p-4">
                     <div class="col-md-3">
-                        <label class="form-label fs-5">תאריך</label>
+                        <label class="form-label fs-5">תאריך לידה</label>
                     </div>
                     <div class="col-md-3">
                         <input name="Date_Of_Birth" type="date" class="form-control">
@@ -97,7 +97,8 @@
                         <label class="form-label fs-5">תמונת פרופיל</label>
                     </div>
                     <div class="col-md-3">
-                        <input name="Img" type="file" class="form-control">
+                        <input name="Img" type="file" class="form-control" id="imgInput"
+                        >
                     </div>
                     <div class="form-text"></div>
                 </div>
@@ -177,6 +178,34 @@
       }, false);
     })();
     </script>
+<script>
+  
+    const dateOfBirthInput = document.querySelector('[name="Date_Of_Birth"]');
+
+    // Create a new Date object with the current date
+    const currentDate = new Date();
+
+    // Format the current date as YYYY-MM-DD 
+    const formattedDate = currentDate.toISOString().split('T')[0];
+
+    // Set the default value for the Date_Of_Birth input element
+    dateOfBirthInput.value = formattedDate;
+</script>
+<script>
+    // Get the Img input element by ID
+    const imgInput = document.getElementById('imgInput');
+
+    // Define the default image URL
+    const defaultImageUrl = '../pictures/default_profile_picture.jpg'; // Replace with your actual default image URL
+
+    // Add an event listener to the input element to set the default value
+    imgInput.addEventListener('change', function () {
+        if (!imgInput.files.length) {
+            // No file selected, set the default image URL as the value
+            imgInput.value = defaultImageUrl;
+        }
+    });
+</script>
 
     </body>
 

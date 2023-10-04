@@ -11,11 +11,8 @@ const register = async (Email, Password, First_Name, Last_Name, Date_Of_Birth, I
         Email, Password, First_Name, Last_Name, Date_Of_Birth, Img, When, Who, Did
     });
 
-    if (Img)
-        user.Img = Img;
-
-    if (Date_Of_Birth)
-        user.Date_Of_Birth = Date_Of_Birth;
+    if (!Img)
+        user.Img = '../pictures/default_profile_picture.jpg';
 
     return await user.save();
 };

@@ -37,7 +37,8 @@ async function login(req, res) {
     res.redirect('/') //==> need to be change, after we will creade some new pages for login members. 
   }
   else
-    res.redirect('/login?error=1')
+    res.render('login', { error: 'Incorrect email or password' });
+
 }
 
 async function register(req, res) {
