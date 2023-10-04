@@ -11,7 +11,10 @@
     <link rel="stylesheet" href="register.css">
 </head>
 
+
 <body dir="rtl">
+    <form class="needs-validation" novalidate method="post">
+
     <div class="container min-vh-100">
         <div class="row p-3">
             <div class="col-1 login">
@@ -29,15 +32,14 @@
                 <div class="fs-3"><u>טופס הרשמה</u></div>
             </div>
         </div>
-        <form action="/register" method="post" class="needs-validation">
+        <form action="/register" method="post">
             <div class="row form-outline">
                 <div class="col form-outline row p-4">
                     <div class="col-md-3">
                         <label class="form-label fs-5">דואר אלקטרוני</label>
                     </div>
                     <div class="col-md-3">
-                        <input name="Email" type="email" class="form-control" placeholder="example@gmail.com"
-                            minlength="5" required>
+                        <input name="Email" type="email" class="form-control" placeholder="example@gmail.com" minlength="5" required>
                     </div>
                     <div class="form-text"></div>
                 </div>
@@ -46,11 +48,10 @@
                         <label class="form-label fs-5">סיסמה</label>
                     </div>
                     <div class="col-md-3">
-                        <input name="Password" type="password" class="form-control"
-                            placeholder="סיסמה חייבת להכיל לפחות 4 תווים." minlength="4" required>
+                        <input name="Password" type="password" class="form-control" placeholder="סיסמה חייבת להכיל לפחות 4 תווים." minlength="4" required>
                         <div class="invalid-feedback" id="valid">
                             Please enter password.
-                        </div>
+                          </div>
                     </div>
                     <div class="form-text"></div>
                 </div>
@@ -61,11 +62,10 @@
                         <label class="form-label fs-5">שם פרטי</label>
                     </div>
                     <div class="col-md-3">
-                        <input name="First_Name" type="text" class="form-control" placeholder="דוגמה: ישראל"
-                            minlength="1" required>
+                        <input name="First_Name" type="text" class="form-control" placeholder="דוגמה: ישראל"  minlength="2" required>
                         <div class="invalid-feedback">
                             Please enter first name.
-                        </div>
+                          </div>
                     </div>
                     <div class="form-text"></div>
                 </div>
@@ -74,11 +74,10 @@
                         <label class="form-label fs-5">שם משפחה</label>
                     </div>
                     <div class="col-md-3">
-                        <input name="Last_Name" type="text" class="form-control" placeholder="דוגמה: ישראלי"
-                            minlength="1" required>
+                        <input name="Last_Name" type="text" class="form-control" placeholder="דוגמה: ישראלי"  minlength="2" required>
                         <div class="invalid-feedback">
                             Please enter last name.
-                        </div>
+                          </div>
                     </div>
                     <div class="form-text"></div>
                 </div>
@@ -119,7 +118,7 @@
                             <div class="col">
                                 <div class="form-group d-flex">
                                     <div class="col-6 my-2 fs-5">מתי התאהבת בביתר?</div>
-                                    <input name="When" class="col-4 my-2 fs-5" id="love" minlength="1" required>
+                                    <input name="When" class="form-control" class="col-4 my-2 fs-5" id="love" minlength="2" required>
                                 </div>
                             </div>
                         </div>
@@ -127,7 +126,7 @@
                             <div class="col">
                                 <div class="form-group d-flex">
                                     <div class="col-6 my-2 fs-5">מי השחקן האהוב עליך?</div>
-                                    <input name="Who" class="col-4 my-2 fs-5" id="player" minlength="1" required>
+                                    <input name="Who" class="form-control" class="col-4 my-2 fs-5" id="player" minlength="2" required>
                                 </div>
                             </div>
                         </div>
@@ -135,7 +134,7 @@
                             <div class="col">
                                 <div class="form-group d-flex">
                                     <div class="col-md-6 my-2 fs-5">האם אי פעם לבשת אדום?</div>
-                                    <input name="Did" class="col-4 my-2 fs-5" id="red" minlength="1" required>
+                                    <input name="Did" class="form-control" class="col-4 my-2 fs-5" id="red" minlength="2" required>
                                 </div>
                             </div>
                         </div>
@@ -157,27 +156,29 @@
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
         crossorigin="anonymous"></script>
     <script src="register.css"></script>
-    <script>
-        // Example starter JavaScript for disabling form submissions if there are invalid fields
-        (function () {
-            'use strict';
-            window.addEventListener('load', function () {
-                // Fetch all the forms we want to apply custom Bootstrap validation styles to
-                var forms = document.getElementsByClassName('needs-validation');
-                // Loop over them and prevent submission
-                var validation = Array.prototype.filter.call(forms, function (form) {
-                    form.addEventListener('submit', function (event) {
-                        if (form.checkValidity() === false) {
-                            event.preventDefault();
-                            event.stopPropagation();
-                        }
-                        form.classList.add('was-validated');
-
-                    }, false);
-                });
-            }, false);
-        })();
+</form>
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function() {
+      'use strict';
+      window.addEventListener('load', function() {
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.getElementsByClassName('needs-validation');
+        // Loop over them and prevent submission
+        var validation = Array.prototype.filter.call(forms, function(form) {
+          form.addEventListener('submit', function(event) {
+            if (form.checkValidity() === false) {
+              event.preventDefault();
+              event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+            
+          }, false);
+        });
+      }, false);
+    })();
     </script>
-</body>
+
+    </body>
 
 </html>
