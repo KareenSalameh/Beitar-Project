@@ -1,4 +1,4 @@
-//const gamesService = require('../Services/Games');
+const gamesService = require('../Services/Games');
 
 //static data - should be remove after having a database access
 //games data
@@ -8,19 +8,36 @@ var games = [
   { "date": "31/08/2023", "rival": "מכבי חיפה", "stadium": "סמי עופר", "result": "10-0", "summary":"https://www.youtube.com/embed/fdAabNAi0Xk" }
 ];
 
-function gamesForm(req, res) { res.render("games", {games}) };
+function gamesForm(req, res) { res.render("games.ejs", {games}) };
 
-//function gamesMaintainForm(req, res) { res.render("games_maintainance", {games}) };
+async function gamesMaintainForm(req, res) { 
+  try {
+    const games = await gamesService.getAllGames();
 
-function games(req, res) {
-   res.redirect('/games');
+    res.render("games_maitianance.ejs", { games  });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Internal Server Error");
+  }
+};
+
+async function create(req, res) {
+  const {  Date, Rival, Stadium, Result, Summary } = req.body;
+
+  try {
+    // Attempt to create the game
+    await gamesService.createGame(Date, Rival, Stadium, Result, Summary);
+
+    // Game creation succeeded
+    return res.status(200).json({ message: 'Game created successfully' });
+  } catch (error) {
+    // Game creation failed
+    return res.status(400).json({ message: 'Game creation failed', error: error.message });
+  }
 }
-/*
-function games_maintainance(req, res) {
-  res.redirect('/games_maintainance');
-}*/
 
 module.exports = {
     gamesForm,
-    gamesMaintainForm
+    gamesMaintainForm,
+    create
 };
