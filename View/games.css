@@ -122,3 +122,9 @@ body {
 .table-wrapper-scroll-y {
     display: block;
 }
+
+#myMap {
+    position: relative;
+    width: 400px;
+    height: 200px;
+}

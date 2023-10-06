@@ -154,3 +154,9 @@ body {
     height: 25px;
     width: 25px;
 }
+
+#myMap {
+    position: relative;
+    width: 400px;
+    height: 200px;
+}
