@@ -7,7 +7,7 @@ var stadiums_locations = [
 
 var map;
 
-const keys = require('./Config/keys');
+//const keys = require('./Config/keys');
 
 function findStadiumByName(stadiumName) {
     return stadiums_locations.find(function(location) {
@@ -24,12 +24,12 @@ $(document).ready(function () {
         $('.popup').css('display', 'flex');
         $('#popup_title').text($(this).text().trim());
         my_stadium = $('#popup_title').text();
-        const location = findStadiumByName(my_stadium);
-        console.log(location);
-        GetMap(location);
+        //const location = findStadiumByName(my_stadium);
+        //console.log(location);
+        //GetMap(location);
     });
 });
-
+/*
 function GetMap(location) {
     if (Microsoft && Microsoft.Maps) {
         console.log(location.latitude, location.longitude);
@@ -59,7 +59,7 @@ function GetMap(location) {
         });
     }
 }
-
+*/
 $('.close').click(function () {
     if (map) {
         map.dispose();
@@ -197,9 +197,9 @@ function addGridRow() {
         $('.popup').css('display', 'flex');
         $('#popup_title').text($(this).text().trim());
         my_stadium = $('#popup_title').text();
-        const location = findStadiumByName(my_stadium);
-        console.log(location);
-        GetMap(location);
+        //const location = findStadiumByName(my_stadium);
+        //console.log(location);
+        //GetMap(location);
     });
 
     // Clear input fields after adding the row

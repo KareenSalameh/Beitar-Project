@@ -1,5 +1,5 @@
 const gamesService = require('../Services/Games');
-const keys = require('../Config/keys');
+//const keys = require('../Config/keys');
 
 //static data - should be remove after having a database access
 //games data
@@ -12,7 +12,7 @@ const keys = require('../Config/keys');
 async function gamesForm(req, res) { 
   try {
     const games = await gamesService.getAllGames();
-    const mapkey = keys.bingMapsApiKey;
+    //const mapkey = keys.bingMapsApiKey;
 
     res.render("games.ejs", { games , mapkey });
   } catch (error) {
@@ -26,7 +26,7 @@ async function gamesMaintainForm(req, res) {
     const games = await gamesService.getAllGames();
     const mapkey = keys.bingMapsApiKey;
 
-    res.render("games.ejs", { games, mapkey  });
+    res.render("games_maitianance.ejs", { games, mapkey  });
   } catch (error) {
     console.error(error);
     res.status(500).send("Internal Server Error");

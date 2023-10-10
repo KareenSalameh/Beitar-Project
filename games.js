@@ -1,4 +1,4 @@
-const keys = require('./Config/keys');
+//const keys = require('./Config/keys');
 
 var stadiums_locations = [
     { "stadium": "טדי", "latitude": "31.751152", "longitude": "35.190834" },
@@ -39,7 +39,7 @@ $('.close').click(function () {
 function GetMap(location) {
     if (Microsoft && Microsoft.Maps) {
         console.log(location.latitude, location.longitude);
-        var apiKey = keys.bingMapsApiKey;
+        var apiKey = 'AtBNejYN8x4wug_S8ZASuV4q98ci_mHoap2whtuA1l2HakS4BOpN8Z0MI-Jjq8hF';
         console.log(apiKey);
         // Make a geocoding request
         $.ajax({
