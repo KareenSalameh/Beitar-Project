@@ -52,14 +52,16 @@ async function create(req, res) {
 
 async function deleteGame(req, res) {
   const id = req.body;
+  console.log(id);
   try {
     // Attempt to delete the game
-    await gamesService.deleteGame(id);
+      await gamesService.deleteGame(id);
     // Game deletion succeeded
     return res.status(200).json({ message: 'Game deleted successfully' });
   } catch (error) {
     // Game deletion failed
-    return res.status(400).json({ message: 'Game deletion failed', error: error.message });
+    return res.
+    status(400).json({ message: 'Game deletion failed', error: error.message });
   }
 } 
 

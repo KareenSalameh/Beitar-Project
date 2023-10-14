@@ -42,8 +42,7 @@ const updateGame = async (ID, Date, Rival, Stadium, Result, Summary) => {
 };
 
 const deleteGame = async (ID) => {
-    //const objectId = mongoose.Types.objectId(ID);
-    const objectId = objectId(ID);
+    const objectId = new mongoose.Types.ObjectId(ID.ID);
     return await Game.findByIdAndRemove(objectId);
 };
 
