@@ -3,9 +3,11 @@ var stadiums_locations = [
     { "stadium": "בלומפילד", "latitude": "32.051458", "longitude": "34.760413" },
     { "stadium": "נתניה", "latitude": "32.293820", "longitude": "34.864610" },
     { "stadium": "סמי עופר", "latitude": "32.783533", "longitude": "34.964782" },
-  ];
+];
 
 var map;
+var isUpdate = false;
+var selectedRow;
 
 const dateInput = $("#date");
 const rivalInput = $("#rival");
@@ -16,7 +18,7 @@ const linkInput = $("#link");
 //const keys = require('./Config/keys');
 
 function findStadiumByName(stadiumName) {
-    return stadiums_locations.find(function(location) {
+    return stadiums_locations.find(function (location) {
         return location.stadium === stadiumName;
     });
 }
@@ -36,7 +38,7 @@ $(document).ready(function () {
     });
     const deleteButtons = $('.delete');
     var id;
-    const succeeded = deleteButtons.click(function() {
+    const succeeded = deleteButtons.click(function () {
         id = $(this).attr('id').substring(1);
         deleteGame(id);
     });
@@ -57,7 +59,7 @@ async function deleteGame(id) {
         if (response.ok) {
             // Game deletion succeeded
             const responseData = await response.json();
-            const deleteRow = $('#' +id);
+            const deleteRow = $('#' + id);
             deleteRow.remove();
         } else {
             // Game deletion failed
@@ -116,6 +118,33 @@ $('#plus').click(function () {
 $('#add_close').click(function () {
     $('#add_button').css('display', 'flex');
     $('#add_details').css('display', 'none');
+    console.log(isUpdate);
+    if (isUpdate)
+    {
+        // Remove the mark (CSS class) from the row
+        selectedRow.removeClass('marked');
+        
+        // Show all buttons inside the grid
+        $('.delete, .update').show();
+        
+        // Clear the input fields
+        dateInput.val('');
+        rivalInput.val('');
+        stadiumInput.val('');
+        resultInput.val('');
+        linkInput.val('');
+        
+        // Show the existing row
+        selectedRow.show();
+        
+        // Hide the input fields
+        $('#add_button').css('display', 'flex');
+        $('#add_details').css('display', 'none');
+        
+        // Remove the event listener
+        $('#closeButton').off('click');
+        isUpdate = false;
+    }
 });
 
 document.addEventListener('keydown', async function (event) {
@@ -130,37 +159,72 @@ document.addEventListener('keydown', async function (event) {
             return;
         }
         const regex = /^\d{1}-\d{1}$/;;
-        if (regex.test(result))
-        {
+        if (regex.test(result)) {
             alert("Please fill in all fields");
             return;
         }
-        try {
-            const response = await fetch('/games_maitianance/create', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    Date: dateInput.val(),
-                    Rival: rivalInput.val(),
-                    Stadium: stadiumInput.val(),
-                    Result: resultInput.val(),
-                    Summary: linkInput.val(),
-                }),
-            });
+        //create
+        if (!isUpdate) {
+            try {
+                const response = await fetch('/games_maitianance/create', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        Date: dateInput.val(),
+                        Rival: rivalInput.val(),
+                        Stadium: stadiumInput.val(),
+                        Result: resultInput.val(),
+                        Summary: linkInput.val(),
+                    }),
+                });
 
-            if (response.ok) {
-                // Game creation succeeded
-                const responseData = await response.json();
-                addGridRow();
-            } else {
-                // Game creation failed
-                const errorData = await response.json();
-                alert(errorData.message);
+                if (response.ok) {
+                    // Game creation succeeded
+                    const responseData = await response.json();
+                    addGridRow();
+                } else {
+                    // Game creation failed
+                    const errorData = await response.json();
+                    alert(errorData.message);
+                }
+            } catch (error) {
+                console.error(error);
             }
-        } catch (error) {
-            console.error(error);
+        }
+        //update
+        else {
+            // Update the existing row with the new data
+            row.find('.date').text(newDate);
+            row.find('.rival').text(newRival);
+            row.find('.stadium').text(newStadium);
+            row.find('.result').text(newResult);
+            row.find('.link').attr('src', newLink);
+
+            // Remove the mark (CSS class) from the row
+            row.removeClass('marked');
+
+            // Show all buttons inside the grid
+            $('.delete, .update').show();
+
+            // Clear the input fields
+            dateInput.val('');
+            rivalInput.val('');
+            stadiumInput.val('');
+            resultInput.val('');
+            linkInput.val('');
+
+            // Show the updated row
+            row.show();
+
+            // Hide the input fields
+            $('#add_button').css('display', 'flex');
+            $('#add_details').css('display', 'none');
+
+            // Remove the event listener
+            $('#saveButton').off('click');
+            isUpdate = false;
         }
     }
 });
@@ -248,3 +312,35 @@ function addGridRow() {
     $('#add_button').css('display', 'flex');
     $('#add_details').css('display', 'none');
 }
+const updateButtons = $('.update');
+updateButtons.click(function () {
+    // Capture the row
+    const row = $(this).closest('.row');
+    selectedRow = row;
+    console.log(selectedRow);
+
+    // Mark the selected row (add a CSS class)
+    row.addClass('marked');
+
+    // Hide all buttons inside the grid
+    $('.delete, .update').hide();
+
+    $('#add_button').css('display', 'none');
+    $('#add_details').css('display', 'flex');
+
+    // Capture data from the existing row
+    const existingDate = row.find('.date').text().trim();
+    const existingRival = row.find('.rival').text().trim();
+    const existingStadium = row.find('.stadium').text().trim();
+    const existingResult = row.find('.result').text().trim();
+    const existingLink = row.find('.link').attr('src');
+
+    // Populate the input fields with the captured data
+    dateInput.val(existingDate);
+    rivalInput.val(existingRival);
+    stadiumInput.val(existingStadium);
+    resultInput.val(existingResult);
+    linkInput.val(existingLink);
+
+    isUpdate = true;
+});

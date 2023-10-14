@@ -85,21 +85,21 @@
                                 <button id="u<%= item._id %>" class="delete btn  btn-dark">מחק</button>
                                 <button id="d<%= item._id %>" class="update btn btn-dark">עדכן</button>
                             </div>
-                            <div class="col-2 text-right my-2 fs-4 d-flex align-items-center justify-content-center">
+                            <div class="col-2 text-right my-2 fs-4 d-flex align-items-center justify-content-center date">
                                 <%= item.Date.toLocaleDateString()%>
                             </div>
-                            <div class="col-2 text-right my-2 fs-4 d-flex align-items-center justify-content-center">
+                            <div class="col-2 text-right my-2 fs-4 d-flex align-items-center justify-content-center rival">
                                 <%= item.Rival%>
                             </div>
                             <div
                                 class="stadium col-2 text-right my-2 fs-4 d-flex align-items-center justify-content-center">
                                 <%= item.Stadium%>
                             </div>
-                            <div class="col-2 text-right my-2 fs-4 d-flex align-items-center justify-content-center">
+                            <div class="col-2 text-right my-2 fs-4 d-flex align-items-center justify-content-center result">
                                 <%= item.Result%>
                             </div>
                             <div class="col-2">
-                                <iframe width="170" height="103" src="<%= item.Summary %>" frameborder="0"
+                                <iframe class="link" width="170" height="103" src="<%= item.Summary %>" frameborder="0"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                     allowfullscreen></iframe>
                             </div>
