@@ -1,0 +1,119 @@
+body {
+    background-color:rgb(249, 249, 249);
+    text-align: right;
+    font-family: var(--bs-body-font-family);
+    margin-right: 8rex;
+}
+
+/*positioning the button inside the popup*/
+#send {
+    margin-top: -30px !important;
+}
+
+/*customize the image size*/
+.bsymbol {
+    margin-top: 20px;
+    position:absolute;
+    top: -10px;
+    left: 20px;
+    width: 120px;
+}
+
+/*center the content of the page*/
+.move{
+    margin-right: 3%;
+}
+
+/*customize the fields*/
+input {
+    background-color: rgb(245, 229, 3) !important;
+}
+
+.form-control{
+    border-color: black;
+    border: solid;
+    width: 294px;
+    height: 40.8px;
+}
+
+/*increase the title size*/
+#title {
+    font-size: 50px;
+    margin-top: 4.5rem;
+}
+
+/*customize the quiz button*/
+.button{
+    position: absolute;
+    left: 50%;
+    transform:translate(-50%,-50%) ;
+    text-align: center;
+    background: #fff;
+    padding: 10px 15px;
+    color: blue;
+    font-weight: bolder;
+    font-size: 18px;
+    border-radius: 5px;
+    box-shadow: 6px 6px 29px -4px rgb(206, 196, 54);
+}
+
+/*chaning the quiz button when hover*/
+.button:hover{
+    background: #0f1316;
+    color: #fff;
+}
+
+/*customize the popup background*/
+.popup{
+    background: rgba(0, 0, 0, 0.6);
+    left: 0.01%;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top:0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--bs-body-font-family);
+}
+
+/*customize the popup content*/
+.popup-content{
+    height: 400px;
+    width: 700px;
+    background: #cbc67cdc;
+    padding: 20px;
+    border-radius: 5px;
+    position: relative;
+    text-align: center;
+}
+
+/*customize the image size in the popup*/
+.img{
+    transform: scale(0.22);
+    margin: 220px;
+    margin-top: -85px;
+}
+
+/*customize the close button*/
+.close{
+    position: absolute;
+    height: 15px;
+}
+
+/*positioning the fileds in the popup*/
+.quiz {
+    top:30%;
+    position: absolute;
+}
+
+.qb{
+    margin-left: 40px;
+}
+
+.login{
+    margin-top: 20px;
+    position:absolute;
+    top: -10px;
+    right: 20px;
+}

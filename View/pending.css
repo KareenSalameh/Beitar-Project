@@ -1,0 +1,26 @@
+.body{
+    font-family: var(--bs-body-font-family);
+}
+
+/*customize the image size*/
+.bsymbol {
+    margin-top: 20px;
+    position:absolute;
+    top: -10px;
+    left: 20px;
+    width: 120px;
+}
+/*increase the title size*/
+#title {
+    font-size: 50px;
+    margin-top: 4.5rem;
+    margin-right: 9%;
+}
+/*positioning the logout button*/
+#logout {
+    text-align: left;
+    position: absolute;
+    bottom: 15%;
+    left: 0;
+    right: 0;
+}
