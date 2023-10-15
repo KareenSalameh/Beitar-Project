@@ -2,7 +2,8 @@ const express = require('express');
 const cors = require('cors');
 const users = require('./routes/Users');
 const games = require('./routes/Games');
-const path = require('path')
+const groups = require('./routes/Groups');
+const path = require('path');
 
 require('custom-env').env(process.env.NODE_ENV, './Config');
 
@@ -32,5 +33,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use("/", users);
 // goes to router (Games)
 app.use("/", games);
+// goes to router (Groups)
+app.use("/",groups);
 
 app.listen(process.env.PORT);

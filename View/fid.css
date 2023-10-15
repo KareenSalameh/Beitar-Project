@@ -1,0 +1,121 @@
+body, input{
+    font-family: var(--bs-body-font-family);
+}
+
+.men-items {
+    text-align: right;
+}
+
+/*customize the border outside the table*/ 
+.bord {
+    border: 6px solid #000;
+    border-radius: 7%;
+    padding: 10px;
+}
+/*customize the image size*/
+.bsymbol {
+    margin-top: 20px;
+    position:absolute;
+    top: -10px;
+    left: 20px;
+    width: 120px;
+}
+
+/*increase the title size*/
+#title {
+    font-size: 50px;
+}
+.dropdown-menu{
+    display: none;
+}
+
+.dropdown{
+    margin-right: 10px;
+    padding-top: 10px;
+}
+
+.card {
+    background-color: rgb(245, 229, 3);
+}
+.btn-dark, .btn-dark:hover, .btn-dark::after{
+    color: rgb(245, 229, 3);
+}
+
+#plus {
+    height: 25px;
+    width: 25px;
+}
+
+#createGroup {
+    margin-left: 50px;
+}
+
+/*customize the popup background*/
+.popup{
+    background: rgba(0, 0, 0, 0.6);
+    left: 0.01%;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top:0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--bs-body-font-family);
+}
+
+/*customize the popup content*/
+.popup-content{
+    height: 400px;
+    width: 700px;
+    background: #cbc67cdc;
+    padding: 20px;
+    border-radius: 5px;
+    position: relative;
+    text-align: center;
+}
+
+/*customize the image size in the popup*/
+.img{
+    transform: scale(0.22);
+    margin: 220px;
+    margin-top: -85px;
+}
+
+/*customize the close button*/
+.close{
+    position: absolute;
+    height: 15px;
+}
+
+/*positioning the fileds in the popup*/
+.quiz {
+    top:30%;
+    right: -10%;
+    position: absolute;
+}
+
+/*customize the quiz button*/
+.button{
+    position: absolute;
+    left: 50%;
+    transform:translate(-50%,-50%) ;
+    text-align: center;
+    background: #fff;
+    padding: 10px 15px;
+    color: blue;
+    font-weight: bolder;
+    font-size: 18px;
+    border-radius: 5px;
+    box-shadow: 6px 6px 29px -4px rgb(206, 196, 54);
+}
+
+/*chaning the quiz button when hover*/
+.button:hover{
+    background: #0f1316;
+    color: #fff;
+}
+
+#send {
+    top:80%;
+}
