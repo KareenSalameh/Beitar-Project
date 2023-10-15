@@ -11,4 +11,7 @@ router.post('/games_maitianance/create', gamesController.create);
 // Create a new game (POST request)
 router.post('/games_maitianance/delete', gamesController.deleteGame);
 
+// Create a new game (POST request)
+router.post('/games_maitianance/update', gamesController.updateGame);
+
 module.exports = router;

@@ -119,28 +119,27 @@ $('#add_close').click(function () {
     $('#add_button').css('display', 'flex');
     $('#add_details').css('display', 'none');
     console.log(isUpdate);
-    if (isUpdate)
-    {
+    if (isUpdate) {
         // Remove the mark (CSS class) from the row
         selectedRow.removeClass('marked');
-        
+
         // Show all buttons inside the grid
         $('.delete, .update').show();
-        
+
         // Clear the input fields
         dateInput.val('');
         rivalInput.val('');
         stadiumInput.val('');
         resultInput.val('');
         linkInput.val('');
-        
+
         // Show the existing row
         selectedRow.show();
-        
+
         // Hide the input fields
         $('#add_button').css('display', 'flex');
         $('#add_details').css('display', 'none');
-        
+
         // Remove the event listener
         $('#closeButton').off('click');
         isUpdate = false;
@@ -196,35 +195,72 @@ document.addEventListener('keydown', async function (event) {
         //update
         else {
             // Update the existing row with the new data
-            row.find('.date').text(newDate);
-            row.find('.rival').text(newRival);
-            row.find('.stadium').text(newStadium);
-            row.find('.result').text(newResult);
-            row.find('.link').attr('src', newLink);
+            const id = selectedRow.find(".update").attr('id').substring(1);
 
-            // Remove the mark (CSS class) from the row
-            row.removeClass('marked');
+            try {
+                const response = await fetch('/games_maitianance/update', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        Id: id,
+                        Date: dateInput.val(),
+                        Rival: rivalInput.val(),
+                        Stadium: stadiumInput.val(),
+                        Result: resultInput.val(),
+                        Summary: linkInput.val(),
+                    }),
+                });
 
-            // Show all buttons inside the grid
-            $('.delete, .update').show();
+                if (response.ok) {
+                    // Game creation succeeded
+                    // Get values from input fields
+                    const originalDate = dateInput.val().replace(/-/g, '.');
 
-            // Clear the input fields
-            dateInput.val('');
-            rivalInput.val('');
-            stadiumInput.val('');
-            resultInput.val('');
-            linkInput.val('');
+                    // Split the date string into parts using the forward slash as the separator
+                    const parts = originalDate.split('.');
+                    // Ensure day, month, and year have two digits (pad with leading zeros if necessary)
+                    const formattedDay = parts[2].replace(/^0+/, '');
+                    const formattedMonth = parts[1].replace(/^0+/, '');
+                    const formattedYear = parts[0];
 
-            // Show the updated row
-            row.show();
+                    // Create the formatted date string
+                    const reversedDate = `${formattedDay}.${formattedMonth}.${formattedYear}`;
+                    selectedRow.find('.date').text(reversedDate);
+                    selectedRow.find('.rival').text(rivalInput.val());
+                    selectedRow.find('.stadium').text(stadiumInput.val());
+                    selectedRow.find('.result').text(resultInput.val());
+                    selectedRow.find('.link').attr('src', linkInput.val());
 
-            // Hide the input fields
-            $('#add_button').css('display', 'flex');
-            $('#add_details').css('display', 'none');
+                    // Remove the mark (CSS class) from the row
+                    selectedRow.removeClass('marked');
 
-            // Remove the event listener
-            $('#saveButton').off('click');
-            isUpdate = false;
+                    // Show all buttons inside the grid
+                    $('.delete, .update').show();
+
+                    // Clear the input fields
+                    dateInput.val('');
+                    rivalInput.val('');
+                    stadiumInput.val('');
+                    resultInput.val('');
+                    linkInput.val('');
+
+
+                    // Hide the input fields
+                    $('#add_button').css('display', 'flex');
+                    $('#add_details').css('display', 'none');
+
+                    isUpdate = false;
+                } else {
+                    // Game creation failed
+                    const errorData = await response.json();
+                    alert(errorData.message);
+                }
+            } catch (error) {
+                console.error(error);
+            }
+
         }
     }
 });
@@ -232,11 +268,17 @@ document.addEventListener('keydown', async function (event) {
 function addGridRow() {
     // Get values from input fields
     const originalDate = dateInput.val().replace(/-/g, '.');
+
     // Split the date string into parts using the forward slash as the separator
     const parts = originalDate.split('.');
-    // Rearrange the parts in the desired order (day, month, year)
-    const reversedDate = `${parts[2]}.${parts[1]}.${parts[0]}`;
 
+    // Ensure day, month, and year have two digits (pad with leading zeros if necessary)
+    const formattedDay = parts[0].padStart(2, '0');
+    const formattedMonth = parts[1].padStart(2, '0');
+    const formattedYear = parts[2].padStart(4, '0');
+
+    // Create the formatted date string
+    const reversedDate = `${formattedDay}.${formattedMonth}.${formattedYear}`;
     const rival = rivalInput.val();
     const stadium = stadiumInput.val();
     const result = resultInput.val();
@@ -336,7 +378,22 @@ updateButtons.click(function () {
     const existingLink = row.find('.link').attr('src');
 
     // Populate the input fields with the captured data
-    dateInput.val(existingDate);
+    const parts = existingDate.split('.');
+    if (parts.length !== 3) {
+        return inputDate; // Invalid date format, return as is
+    }
+    const day = parts[0];
+    const month = parts[1];
+    const year = parts[2];
+
+    // Ensure that day and month have two digits (pad with leading zeros if necessary)
+    const formattedDay = day.padStart(2, '0');
+    const formattedMonth = month.padStart(2, '0');
+    const isoDate = new Date(`${year}-${formattedMonth}-${formattedDay}`);
+
+    // Format the ISO date back to 'yyyy-mm-dd' for the date input
+    const isoFormattedDate = isoDate.toISOString().split('T')[0];
+    dateInput.val(isoFormattedDate);
     rivalInput.val(existingRival);
     stadiumInput.val(existingStadium);
     resultInput.val(existingResult);

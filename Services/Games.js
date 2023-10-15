@@ -8,20 +8,20 @@ const getLimitedNumOfGames = async () => {
     try {
         const games = await Game.find().limit(limit);
         return games;
-      } catch (error) {
+    } catch (error) {
         // Handle the error, e.g., log it or throw it further up the stack
         throw error;
-      }
+    }
 };
 
 const getAllGames = async () => {
     try {
         const games = await Game.find();
         return games;
-      } catch (error) {
+    } catch (error) {
         // Handle the error, e.g., log it or throw it further up the stack
         throw error;
-      }
+    }
 };
 
 const createGame = async (Date, Rival, Stadium, Result, Summary) => {
@@ -35,10 +35,24 @@ const createGame = async (Date, Rival, Stadium, Result, Summary) => {
 };
 
 const updateGame = async (ID, Date, Rival, Stadium, Result, Summary) => {
+    /*const filter = { _id: ID };
     const game = new Game({
         Date, Rival, Stadium, Result, Summary
     });
-    return await game.findByIdAndUpdate(ID,game);
+    return await Game.findOneAndUpdate(filter,game, {
+        Date, Rival, Stadium, Result, Summary
+    });*/
+    const existingGame = await Game.findById(ID);
+    if (!existingGame) {
+        alert('Document does not exist');
+    }
+    existingGame.Date = Date;
+    existingGame.Rival = Rival;
+    existingGame.Stadium = Stadium;
+    existingGame.Result = Result;
+    existingGame.Summary = Summary;
+
+    await existingGame.save();
 };
 
 const deleteGame = async (ID) => {

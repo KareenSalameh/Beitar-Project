@@ -52,7 +52,6 @@ async function create(req, res) {
 
 async function deleteGame(req, res) {
   const id = req.body;
-  console.log(id);
   try {
     // Attempt to delete the game
       await gamesService.deleteGame(id);
@@ -65,9 +64,24 @@ async function deleteGame(req, res) {
   }
 } 
 
+async function updateGame(req, res) {
+  const {  Id, Date, Rival, Stadium, Result, Summary } = req.body;
+  try {
+    // Attempt to delete the game
+      await gamesService.updateGame(Id, Date, Rival, Stadium, Result, Summary);
+    // Game deletion succeeded
+    return res.status(200).json({ message: 'Game updated successfully' });
+  } catch (error) {
+    // Game deletion failed
+    return res.
+    status(400).json({ message: 'Game update failed', error: error.message });
+  }
+} 
+
 module.exports = {
     gamesForm,
     gamesMaintainForm,
     create,
-    deleteGame
+    deleteGame,
+    updateGame
 };
