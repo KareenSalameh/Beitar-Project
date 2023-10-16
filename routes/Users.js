@@ -9,5 +9,6 @@ router.post("/login", userController.login);
 router.get('/logout',userController.logout);
 router.get('/', userController.isLoggedIn, userController.fid);
 router.get("/pending", userController.pendingForm);
-
+router.get("/user_maintainance", userController.maintainForm);
+router.post("/user_maintainance", userController.changeUserStatus);
 module.exports = router;

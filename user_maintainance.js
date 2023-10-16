@@ -12,11 +12,11 @@ const jsonData2 = [
     { "name": "daniel", "last_name": "bann", "mail": "n1baarez@gmail.com", "d_o_b": "21/04/1999", "picture":"../pictures/man3.jpg", "when":"התשב", "who":"glazer","did":"maybe" }
 ];
 
-function generateGridRows(active_users, request_users) {
+function generateGridRows(){//active_users, request_users) {
     //table item access
     const gridContainer = $("#grid");
     const gridContainer2 = $("#grid2");
-
+/*
     //for each object from the db
     active_users.forEach(item => {
         //create a bootstrap row with an image, name, last name, mail, date of birth and a delete button
@@ -71,19 +71,21 @@ function generateGridRows(active_users, request_users) {
         //add the row to the table item
         gridContainer2.append(rowHtml);
     });
+    */
     //add a border outside the table
     gridContainer.addClass("bord");
     gridContainer2.addClass("bord");
 
     //return number of rows added
-    return i;
+    //return i;
 }
 
 var countrows;
 //once page was uploaded
 $(document).ready(function() {
     //add rows to table and return their number
-    countrows = generateGridRows(jsonData, jsonData2);
+    //countrows = 
+    generateGridRows(jsonData, jsonData2);
 
     //for each row added
     for (let index = 0; index < countrows; index++) {
@@ -95,9 +97,6 @@ $(document).ready(function() {
             //display popup with the data from the specipic line
             //when connecting the page to database, these lines to be adjusted
             $('.popup').css('display', 'flex');
-            $('#love').val(jsonData2[dataIndex]["when"]);
-            $('#player').val(jsonData2[dataIndex]["who"]);
-            $('#red').val(jsonData2[dataIndex]["did"]);
         });
     }
     
