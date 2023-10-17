@@ -57,7 +57,7 @@ const updateUser = async (Email, Password, Img) => {
 };
 
 const updateStatus = async (Email, Status) => {
-    const user = getUser(Email);
+    const user = await getUser(Email);
     if (!user)
         return null;    
     user.Status = Status;    

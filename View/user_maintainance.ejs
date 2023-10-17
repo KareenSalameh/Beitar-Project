@@ -79,13 +79,13 @@
                 <div class="row">
                     <div class="col-1 text-center fs-5 my-2">
                         <div class="pics">
-                            <img src="${item.picture}">
+                            <img src="<%= item.Imgh %>">
                         </div>
                     </div>
                     <div class="col-2 text-center my-2"><%= item.First_Name %></div>
                     <div class="col-2 text-center my-2"><%= item.Last_Name %></div>
                     <div class="col-2 text-center my-2 mail"><%= item.Email %></div>
-                    <div class="col-2 text-center my-2 date"><%= item.Date_Of_Birth %></div>
+                    <div class="col-2 text-center my-2 date"><%= item.Date_Of_Birth.toLocaleDateString() %></div>
                     <div class="col-1 d-flex align-items-center justify-content-center">
                         <button id="D<%= item.mail %>" class="crud"><b>מחק</b></button>
                     </div>
@@ -141,21 +141,21 @@
                 <div class="row">
                     <div class="col-1 text-center fs-5 my-2">
                         <div class="pics">
-                            <img src="${item.picture}">
+                            <img src="<%= item.Img %>">
                         </div>
                     </div>
                     <div class="col-2 text-center my-2"><%= item.First_Name %></div>
                     <div class="col-2 text-center my-2"><%= item.Last_Name %></div>
                     <div class="col-2 text-center my-2 mail"><%= item.Email %></div>
-                    <div class="col-2 text-center my-2 date"><%= item.Date_Of_Birth %></div>
+                    <div class="col-2 text-center my-2 date"><%= item.Date_Of_Birth.toLocaleDateString() %></div>
                     <div class="col-1 plus">
                         <img src="../pictures/plus.jpg" id="plus<%= i %>">
                     </div>
                     <div class="col-1 d-flex align-items-center accept">
-                        <button id="A<%= item.mail %>" class="crud"><b>אשר</b></button>
+                        <button id="A<%= item.Email %>" class="crud"><b>אשר</b></button>
                     </div>
                     <div class="col-1 d-flex align-items-center deny">
-                        <button id="R<%= item.mail %>" class="crud"><b>דחה</b></button>
+                        <button id="R<%= item.Email %>" class="crud"><b>דחה</b></button>
                     </div>
                 </div>
                 <% i++ %>
@@ -170,7 +170,7 @@
                     <div class="col">
                         <div class="form-group d-flex">
                             <div class="col-6 my-2 fs-5">מתי התאהבת בביתר?</div>
-                            <input class="col-4 my-2 fs-5" id="love" value="${item.when}">
+                            <input class="col-4 my-2 fs-5" id="love" value="item.when%>">
                         </div>
                     </div>
                 </div>
@@ -178,7 +178,7 @@
                     <div class="col">
                         <div class="form-group d-flex">
                             <div class="col-6 my-2 fs-5">מי השחקן האהוב עליך?</div>
-                            <input class="col-4 my-2 fs-5" id="player" value="${item.who}">
+                            <input class="col-4 my-2 fs-5" id="player" value="item.who%>">
                         </div>
                     </div>
                 </div>
@@ -186,7 +186,7 @@
                     <div class="col">
                         <div class="form-group d-flex">
                             <div class="col-md-6 my-2 fs-5">האם אי פעם לבשת אדום?</div>
-                            <input class="col-4 my-2 fs-5" id="red" value="${item.did}">
+                            <input class="col-4 my-2 fs-5" id="red" value="item.did%>">
                         </div>
                     </div>
                 </div>

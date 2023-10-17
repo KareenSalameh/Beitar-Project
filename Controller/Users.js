@@ -97,7 +97,7 @@ const changeUserStatus = async (req, res) => {
     });
   }
 
-  const user = await usersService.updateStatus(Email,Status);
+  const user = await usersService.updateStatus(req.body.Email,req.body.Status);
   if (!user) {
     return res.status(404).json({ errors: ['User not found'] });
   }
