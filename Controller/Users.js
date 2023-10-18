@@ -21,6 +21,16 @@ async function maintainForm(req, res) {
   res.render("user_maintainance", {request_users,active_users}) 
 }
 
+async function getQuiz(req, res) {
+  console.log(req.body.Email);
+  const user = await usersService.getUser(req.body.Email);
+  if (!user) {
+    return res.status(404).json({ errors: ['User not found'] });
+  }
+
+  res.json(user);
+}
+
 async function fid(req, res, Email) {
   const user = await usersService.getUser(req.session.Email);
   res.render("fid", { First_Name: user.First_Name });
@@ -128,5 +138,6 @@ module.exports = {
   pendingForm,
   fid,
   maintainForm,
-  changeUserStatus
+  changeUserStatus,
+  getQuiz
 };

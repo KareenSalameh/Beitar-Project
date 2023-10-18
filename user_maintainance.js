@@ -30,11 +30,41 @@ $(document).ready(function() {
     //for each row added
     for (let index = 0; index < rowCountGrid2; index++) {
         //once clicking th plus image
-        $('#plus' + index).click(function() {
-
+        $('#plus' + index).click(async function() {
+            const Email = $(this).closest('.row').find('.mail').text();
+            console.log(Email);
             //display popup with the data from the specipic line
             //when connecting the page to database, these lines to be adjusted
             $('.popup').css('display', 'flex');
+            try {
+                const response = await fetch('/user_maintainance/quiz', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        Email: Email
+                    }),
+                });
+        
+                if (response.ok) {
+                    // User status changed
+                    const responseData = await response.json();
+                    const when = $('#love');
+                    const who = $('#player');
+                    const did = $('#red');
+                    console.log(responseData);
+                    when.val(responseData.When);
+                    who.val(responseData.Who);
+                    did.val(responseData.Did);
+                } else {
+                    // Changing status failed
+                    const errorData = await response.json();
+                    alert(errorData.message);
+                }
+            } catch (error) {
+                console.error(error);
+            }
         });
 
     }
@@ -45,7 +75,7 @@ $(document).ready(function() {
         const EmailInput = $(this).attr('id').substring(1);
         console.log(EmailInput);
         const rowHTML = $(this).closest('.row');
-        console.log(rowHTML);
+        console.log(rowHTML.find('.mail').text());
         switch (action) {
             case 'A':
                 changeUserStatus(EmailInput, 'Active', rowHTML)
@@ -82,14 +112,16 @@ async function changeUserStatus(Email, Status, Row) {
         if (response.ok) {
             // User status changed
             const responseData = await response.json();
-            if (Status == 'A')
-            {
-                gridContainer.append(Row);
-                gridContainer2.remove(Row);
-            }
-            else if (Status == 'R')
-            {
-                gridContainer2.remove(Row);
+            if (Status == 'A') {
+                // Clone the row
+                const clonedRow = Row.clone();
+                // Remove the original row from the second grid
+                Row.remove();
+                // Append the cloned row to the first grid
+                gridContainer.append(clonedRow);
+            } else if (Status == 'R') {
+                // Remove the row from the second grid
+                Row.remove();
             }
         } else {
             // Changing status failed
@@ -100,7 +132,7 @@ async function changeUserStatus(Email, Status, Row) {
         console.error(error);
     }
 }
-
+/*
 function UpdateGrids() {
     const rowHtml = `
         <div class="row">
@@ -120,4 +152,4 @@ function UpdateGrids() {
         `;
         //add the row to the table item
         gridContainer.append(rowHtml);
-}
+}*/

@@ -166,11 +166,12 @@
             <img class="close" src="../pictures/close.png">
             <img class="img" src="../pictures/symbol.png">
             <div class="container quiz">
+                <% request_users.forEach(item=> { %>
                 <div class="row">
                     <div class="col">
                         <div class="form-group d-flex">
                             <div class="col-6 my-2 fs-5">מתי התאהבת בביתר?</div>
-                            <input class="col-4 my-2 fs-5" id="love" value="item.when%>">
+                            <input class="col-4 my-2 fs-5" id="love">
                         </div>
                     </div>
                 </div>
@@ -178,7 +179,7 @@
                     <div class="col">
                         <div class="form-group d-flex">
                             <div class="col-6 my-2 fs-5">מי השחקן האהוב עליך?</div>
-                            <input class="col-4 my-2 fs-5" id="player" value="item.who%>">
+                            <input class="col-4 my-2 fs-5" id="player">
                         </div>
                     </div>
                 </div>
@@ -186,10 +187,11 @@
                     <div class="col">
                         <div class="form-group d-flex">
                             <div class="col-md-6 my-2 fs-5">האם אי פעם לבשת אדום?</div>
-                            <input class="col-4 my-2 fs-5" id="red" value="item.did%>">
+                            <input class="col-4 my-2 fs-5" id="red">
                         </div>
                     </div>
                 </div>
+                <% }) %>
             </div>
         </div>
     </div>
